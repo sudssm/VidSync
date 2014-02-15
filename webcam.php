@@ -13,9 +13,9 @@ var apiKey = <?php print API_Config::API_KEY?>;
 var sessionId = '<?php print $sessionId; ?>';
 var token = '<?php print $apiObj->generate_token($sessionId); ?>';
 
-print 'apiKey' + apiKey;
-print 'sessionId' + sessionId;
-print 'token' + token;
+print 'apiKey' + apiKey + "\n";
+print 'sessionId' + sessionId +"\n";
+print 'token' + token+"\n";
 
 var connectionCount = 0;
 TB.setLogLevel(TB.DEBUG);
@@ -152,26 +152,46 @@ function subscribeToStream(stream) {
         session.subscribe(stream, replacementElementId);
     }
 }
+
 </head>
 <body>
-<?php echo 'it works?' ?>
+<?php echo 'it works?\n' ?>
+
 <script type='text/javascript'>
 
-//Create session
-var session = TB.initSession(sessionID);
-session.connect(apiKey, token);
+function sessionConnectedHandler (event) {
+     session.publish( publisher );
+     subscribeToStreams(event.streams);
+  }
+  function subscribeToStreams(streams) {
+    for (var i = 0; i < streams.length; i++) {
+        var stream = streams[i];
+        if (stream.connection.connectionId 
+               != session.connection.connectionId) {
+            session.subscribe(stream);
+        }
+    }
+  }
+  function streamCreatedHandler(event) {
+    subscribeToStreams(event.streams);
+  }
 
-session.addEventListener("sessionConnected", 
+
+  // -- Create session 
+  var publisher = TB.initPublisher(apiKey, 'myPublisher', {width:400, height:300});
+  var session   = TB.initSession(sessionId);
+
+  session.connect(apiKey, token);
+  session.addEventListener("sessionConnected", 
                            sessionConnectedHandler);
  
-session.addEventListener("streamCreated", 
-                         streamCreatedHandler);
+  session.addEventListener("streamCreated", 
+                           streamCreatedHandler);
 
-//UI
-var publisher = TB.initPublisher(apiKey,
-                                 'myPublisher',
-                                 {width:400, height:300})
-session.publish(publisher);
+  session.publish(publisher); 
+
+
+
 </script>
 </body>
 </html>
