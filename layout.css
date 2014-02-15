@@ -26,6 +26,16 @@ height: 10%;
 width: 100%;
 /*position: absolute;*/
 }
+  div#ytapiplayer{
+  width: 60%;
+  height: 50px;
+  margin: 0 auto;
+  padding: 15px 1%;
+  position: relative;
+  opacity:0.8;
+  filter:alpha(opacity:80);
+  }
+
 div.container{
 clear: none; 
 height: 93%;
@@ -50,7 +60,7 @@ text-align: center;
 color: #FFFFFF;
 vertical-align: middle;
 }
-  div.youtube{
+  div.youtube, #myytplayer{
   width: 90%
   margin: 0 auto;
   padding-left: 0 1%;
