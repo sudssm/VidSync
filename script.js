@@ -91,6 +91,7 @@ function makeMp4Player(data) {
     var instastop = true;
     mp4player.onPlay(function(){
       if (instastop){
+        console.log('setup');
         instastop = false;
         mp4player.pause(true);
 
@@ -154,14 +155,21 @@ function handleMp4Inc(data) {
   if (data.playing)
     data.seek += now() - data.timestamp;
 
-  mp4player.seek(data.seek);
+  //mp4player.seek(data.seek);
 
-  console.log("seeked");
+  mp4player.play(data.playing);
 
-  if (data.playing)
-    mp4player.play(true);
-  else 
-    mp4player.pause(true);
+  setTimeout(hack, 100);
+
+  function hack (){
+    console.log("hacking");
+    if (disableUntil == data.playing){
+      mp4player.play(data.playing);
+      setTimeout(hack, 100);
+    }
+  }
+
+  console.log('done handle');
 }
 
 function ytListener (value){
@@ -209,11 +217,12 @@ function mp4PlayPauseListener (play){
       disableUntil = null;
     return;
   }
+
   console.log(play);
   disableUntil = play;
 
   mp4player.pause(play);
-  //outgoing (play, mp4player.getPosition());
+  outgoing (play, mp4player.getPosition());
 }
 
 function now () {
