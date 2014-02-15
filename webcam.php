@@ -6,26 +6,9 @@
 <html>
 <head>
 <script src='http://static.opentok.com/webrtc/v2.0/js/TB.min.js' ></script>
-<?php
-    require_once 'API_Config.php';
-    require_once 'OpenTokSDK.php';
- 
-    $apiObj = new OpenTokSDK(API_Config::API_KEY, API_Config::API_SECRET);
-    $session = $apiObj->create_session();
-    echo $session->getSessionId();
-?>
 </head>
 
 <body>
-<?php
-    require_once 'API_Config.php';
-    require_once 'OpenTokSDK.php';
- 
-    $apiObj = new OpenTokSDK(API_Config::API_KEY, API_Config::API_SECRET);
-    $session = $apiObj->create_session();
-    echo $session->getSessionId();
-?>
-
 <script type="text/javascript">
   var apiKey = '44651662'; //<?php print API_Config::API_KEY?>;
   var sessionId = 'fcf66a2cc7ed40498c38b655851f6082717fc48c'; //'<?php print $session; ?>';
