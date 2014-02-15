@@ -70,7 +70,7 @@ function outgoing (playing, seek) {
 }
 
 function showWelcomeMessage () {
-  $("#youtube").html("Choose a video: "+
+  $("#inputs").html("Choose a video: "+
     "<input id='vid' type='text' placeholder='Choose a video'></input>" +
     "<button id='choose'>Load</button>");
   $("#choose").click(function(){

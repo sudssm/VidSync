@@ -26,7 +26,7 @@ height: 10%;
 width: 100%;
 /*position: absolute;*/
 }
-  div#ytapiplayer{
+  div#inputs{
   width: 60%;
   height: 50px;
   margin: 0 auto;
@@ -60,7 +60,7 @@ text-align: center;
 color: #FFFFFF;
 vertical-align: middle;
 }
-  div.youtube, #myytplayer, #choose{
+  div.youtube, #ytapiplayer{
   width: 90%
   margin: 0 auto;
   padding-left: 0 1%;
