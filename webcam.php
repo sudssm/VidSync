@@ -30,7 +30,7 @@
 
         var apiKey = <?php print API_Config::API_KEY?>;
         var sessionId = '<?php print $session->getSessionId(); ?>';
-        var token = '<?php print $sdk->generate_token(sessionId); ?>';
+        var token = '<?php print $sdk->generate_token("<script>sessionId</script>"); ?>';
 
             TB.addEventListener("exception", exceptionHandler);
             var session = TB.initSession(sessionId); // Replace with your own session ID. See https://dashboard.tokbox.com/projects
