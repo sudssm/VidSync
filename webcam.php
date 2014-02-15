@@ -19,13 +19,6 @@
 
     //Generate token
     $sdk = new OpenTokSDK(API_Config::API_KEY,API_Config::API_SECRET);
-    // Replace with the correct session ID:
-    echo "\ntoken: ";
-    echo $sdk->generate_token($session->getSessionId());
-
-    echo "\nsession: ";
-    echo $session->getSessionId();
-
     ?>
 
         <meta http-equiv="X-UA-Compatible" content="chrome=1">
