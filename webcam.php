@@ -7,10 +7,9 @@
     require_once 'SDK/API_Config.php';
     require_once 'SDK/OpenTokSDK.php';
 
-
+    //API Key
     echo "apiKey: ";
     echo API_Config::API_KEY;
-
 
     //Generate session
     $apiObj = new OpenTokSDK(API_Config::API_KEY, API_Config::API_SECRET);
@@ -40,8 +39,6 @@
             session.addEventListener("streamCreated", streamCreatedHandler);
             session.connect(apiKey, token);
 
-//44651662, 'T1==cGFydG5lcl9pZD00NDY1MTY2MiZzZGtfdmVyc2lvbj10YnJ1YnktdGJyYi12MC45MS4yMDExLTAyLTE3JnNpZz04NzM0N2FkZjQwZWY1MDY3ZDc2ZmMyOWFjN2U2OTRiNjQ0Yzk1OWQxOnJvbGU9c3Vic2NyaWJlciZzZXNzaW9uX2lkPWZjZjY2YTJjYzdlZDQwNDk4YzM4YjY1NTg1MWY2MDgyNzE3ZmM0OGMmY3JlYXRlX3RpbWU9MTM5MjQ5Njg0NSZub25jZT0wLjgzNTMyODgwMTQ3MDM2NzcmZXhwaXJlX3RpbWU9MTM5NTA4ODgyOCZjb25uZWN0aW9uX2RhdGE9'); // Replace with your API key and token. See https://dashboard.tokbox.com/projects
-
             function sessionConnectedHandler(event) {
                  console.log("connected");
                  subscribeToStreams(event.streams);
@@ -70,7 +67,7 @@
         </script>
     </head>
     <body>
-STUFF
+    <a href='http://www.smuralidhar.com/pennapps2014s/webcam.php?'+sessionId+'\''>Share!</a>
     </body>
 </html>
 
