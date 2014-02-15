@@ -73,7 +73,7 @@ function showWelcomeMessage () {
   $("#ytapiplayer").html("Choose a video: "+
     "<input id='vid' type='text' placeholder='Choose a video></input>" +
     "<button id='choose'>Load</button>");
-  $("#youtube").click(function(){
+  $("#choose").click(function(){
     var vid = $("#vid")[0].value + "#";
     if (vid.indexOf("youtube.com")>-1){
       var key = vid.substring(vid.indexOf("v=")+2, vid.indexOf("#"));
