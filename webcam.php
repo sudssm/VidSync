@@ -12,13 +12,13 @@
     echo API_Config::API_KEY;
 
     //Generate session
-    $apiObj = new OpenTokSDK(API_Config::API_KEY, API_Config::API_SECRET);
-    $session = $apiObj->create_session();
-    echo "\nsession: ";
-    echo $session->getSessionId();
+//    $apiObj = new OpenTokSDK(API_Config::API_KEY, API_Config::API_SECRET);
+//    $session = $apiObj->create_session();
+//    echo "\nsession: ";
+//    echo $session->getSessionId();
 
     //Generate token
-    $sdk = new OpenTokSDK(API_Config::API_KEY,API_Config::API_SECRET);
+//    $sdk = new OpenTokSDK(API_Config::API_KEY,API_Config::API_SECRET);
     ?>
 
         <meta http-equiv="X-UA-Compatible" content="chrome=1">
