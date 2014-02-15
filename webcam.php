@@ -17,6 +17,15 @@
 </head>
 
 <body>
+<?php
+    require_once 'API_Config.php';
+    require_once 'OpenTokSDK.php';
+ 
+    $apiObj = new OpenTokSDK(API_Config::API_KEY, API_Config::API_SECRET);
+    $session = $apiObj->create_session();
+    echo $session->getSessionId();
+?>
+
 <script type="text/javascript">
   var apiKey = <?php print API_Config::API_KEY?>;
   var sessionId = '<?php print $session; ?>';
