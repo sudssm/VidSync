@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css?family=Tangerine');
+@import url('https://fonts.googleapis.com/css?family=Happy%20Monkey');
+@import url('https://fonts.googleapis.com/css?family=Averia%20Serif%20Libre');
+@import url('https://fonts.googleapis.com/css?family=The%20Girl%20Next%20Door');
+
+
+html{
+height: 100%;
+padding: 0;
+margin: 0;
+scrolling: no;
+}
+body{
+/*overflow: hidden; /*hide scrolling*/
+scrolling: no;
+height: 100%;
+width: 100%;
+padding: 0;
+margin: 0;
+
+/*background-color: #FFE8F6;*/
+}
+div.horiz{
+float: left;
+height: 10%;
+width: 100%;
+/*position: absolute;*/
+}
+div.container{
+clear: none; 
+height: 93%;
+width: 100%;
+background-image:url('background.png');
+}
+
+div.left{
+/*position: absolute;*/
+float: left;
+width: 80%;
+height: 90%;
+/*display:inline-block;*/
+border-width: 5px;
+border-color: #001200;
+border-radius: 1px;
+font-size: 4em;
+font-family: Happy Monkey;
+font-weight: bold;
+text-shadow: 0 0 0.15em #000000;
+text-align: center;
+color: #FFFFFF;
+vertical-align: middle;
+}
+  div.youtube{
+  width: 90%
+  margin: 0 auto;
+  padding-left: 0 1%;
+  position: relative;
+  }
+  input.link{
+  width: 60%;
+  height: 50px;
+  margin: 0 auto;
+  padding: 15px 1%;
+  position: relative;
+  opacity:0.8;
+  filter:alpha(opacity:80);
+  }
+  #link{
+  width: 60%;
+  padding: 5px;
+  background-color: #000000;
+  border-width: 2px;
+  border-color: #8A1565;
+  font-size: 0.8em;
+  font-family: Happy Monkey;
+  font-weight: bold;
+  text-shadow: 0 0 0.15em #4F0C3A;
+  text-align: justify;
+  color: #FF0000;
+  vertical-align: middle;
+  }
+
+div.cams{
+float: right;
+width: 20%;
+height: 90%;
+/*display:inline-block;*/
+border-width: 5px;
+border-color: #001200;
+border-radius: 1px;
+font-size: 4em;
+font-family: Happy Monkey;
+font-weight: bold;
+text-shadow: 0 0 0.15em #000000;
+text-align: center;
+color: #FFFFFF;
+vertical-align: middle;
+/*line-height: 100%;*/
+}
+  div.cam{
+  margin: 0 auto;
+  padding: 1%;
+  position: relative;
+  width: 100%;
+  height: 50%;
+  position: relative;
+  }
+  #cam1{
+  width: 200px;
+  height: 150px;
+  position: relative;
+  top: 0; left: 0;
+  }
+  #cam2{
+  width: 100px;
+  height: 75px;
+  position: relative;
+  top: 0;
+  left: 0;
+  }
+  div.chat{
+  width: 70%;
+  height: 50%;
+  margin: 0 auto;
+  padding: 10px;
+  position: relative;
+  }
+  
+/*Non divs*/
+a {
+text-decoration:none;
+color: #08520E;
+}
+a:hover {
+text-decoration: underlie overlie;
+border-bottom: 3px dotted;
+border-top: 3px dotted;
+font-style:bold;
+color: #520852;
+}
+a.visited{
+color: #C56BE3;
+text-decoration:line-through;
+}
+a.nodec{
+text-decoration:none;
+}
+/*Text*/
+h1{
+font-size:1em;
+font-family: Happy Monkey;
+margin-bottom:0px;
+margin-top: 0px;
+color: #FFFFFF
+}
+h2{
+font-size:3em;
+font-style:bold;
+font-family: Happy Monkey;
+line-height: 78%;
+margin-bottom:0px;
+text-shadow: 0 0 0.3em #FFFFFF;
+}
+p,li{
+font-size: 0.5em;
+font-family: Averia Serif Libre;
+}
+
+/*Other*/
+img{
+border-width: 5px;
+border-color: #001200;
+margin: 7px;
+border-radius: 20px; /*rounded edges*/
+}
+
+#mouse, #mouse2, #mouse3{
+position: absolute;
+}
