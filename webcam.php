@@ -67,7 +67,7 @@
 window.onload = function() {
        //when the document is finished loading, replace everything
        //between the <a ...> </a> tags with the value of splitText
-   document.getElementById('share').innerHTML= sessionId;
+   document.getElementById('share').href= 'http://www.smuralidhar.com/pennapps2014s/webcam.php?'+sessionId;
 } 
 
         </script>
