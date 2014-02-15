@@ -67,8 +67,8 @@
         </script>
     </head>
     <body>
-    <a href='http://www.smuralidhar.com/pennapps2014s/webcam.php?'+sessionId+'\''>Share!</a>
-    </body>
+      <a href='http://www.smuralidhar.com/pennapps2014s/webcam.php?'+$sessionId+'\''>Share!</a>
+   </body>
 </html>
 
 
