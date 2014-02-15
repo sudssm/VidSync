@@ -2,30 +2,13 @@
 <html>
 <title>test</title>
     <head>
-
-<?php
-    require_once 'SDK/API_Config.php';
-    require_once 'SDK/OpenTokSDK.php';
-
-    //API Key
-    echo "apiKey: ";
-    echo API_Config::API_KEY;
-
-    //Generate session
-//    $apiObj = new OpenTokSDK(API_Config::API_KEY, API_Config::API_SECRET);
-//    $session = $apiObj->create_session();
-//    echo "\nsession: ";
-//    echo $session->getSessionId();
-
-    //Generate token
-//    $sdk = new OpenTokSDK(API_Config::API_KEY,API_Config::API_SECRET);
-    ?>
-
         <meta http-equiv="X-UA-Compatible" content="chrome=1">
         <script src="https://swww.tokbox.com/webrtc/v2.0/js/TB.min.js" type="text/javascript" charset="utf-8"></script>
         <script type="text/javascript" charset="utf-8">
 
         var apiKey = <?php print API_Config::API_KEY?>;
+        var sessionId = '<?php print $session->getSessionId(); ?>';
+        var token = '<?php print $sdk->generate_token($session->getSessionId()); ?>';
 
           var sessionId = '2_MX40NDY1MTY2Mn5-U2F0IEZlYiAxNSAxMzo0NjoyOCBQU1QgMjAxNH4wLjE1MDYzODM0fg';
           var token = 'T1==cGFydG5lcl9pZD00NDY1MTY2MiZzaWc9MDdiOWI3MjBmNWEwNTVmZDhlMzM2MWVhODZhNDhlNDljNGY0M2I2ZjpzZXNzaW9uX2lkPTJfTVg0ME5EWTFNVFkyTW41LVUyRjBJRVpsWWlBeE5TQXhNem8wTmpveU9DQlFVMVFnTWpBeE5INHdMakUxTURZek9ETTBmZyZjcmVhdGVfdGltZT0xMzkyNTAwNzg4JnJvbGU9cHVibGlzaGVyJm5vbmNlPTEzOTI1MDA3ODguMjQ3MTk0NzA1MDQwMA==';
@@ -61,11 +44,6 @@
                 alert(event.message);
             }
 
-
-window.onload = function() {
-   document.getElementById('share').href= 'http://www.smuralidhar.com/pennapps2014s/webcam.php?'+sessionId;
-} 
-
         </script>
     </head>
     <body>
@@ -74,5 +52,3 @@ window.onload = function() {
 ?>
    </body>
 </html>
-
-
