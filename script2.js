@@ -70,8 +70,8 @@ function outgoing (playing, seek) {
 }
 
 function showWelcomeMessage () {
-  $("#ytapiplayer").html("Welcome Choose a video: "+
-    "<input id='vid' type='text'></input>" +
+  $("#ytapiplayer").html("Choose a video: "+
+    "<input id='vid' type='text' placeholder='Choose a video'></input>" +
     "<button id='choose'>Load</button>");
   $("#choose").click(function(){
     var vid = $("#vid")[0].value + "#";
