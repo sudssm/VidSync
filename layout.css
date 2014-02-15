@@ -34,6 +34,19 @@ width: 100%;
   position: relative;
   opacity:0.8;
   filter:alpha(opacity:80);
+  width: 60%;
+  padding: 5px;
+  background-color: #000000;
+  border-width: 2px;
+  border-color: #8A1565;
+  font-size: 0.8em;
+  font-family: Happy Monkey;
+  font-weight: bold;
+  text-shadow: 0 0 0.15em #4F0C3A;
+  text-align: justify;
+  color: #FF0000;
+  vertical-align: middle;
+
   }
 
 div.container{
@@ -61,33 +74,10 @@ color: #FFFFFF;
 vertical-align: middle;
 }
   div.youtube, #ytapiplayer{
-  width: 90%
+  width: 80%
   margin: 0 auto;
   padding-left: 0 1%;
   position: relative;
-  }
-  input.link{
-  width: 60%;
-  height: 50px;
-  margin: 0 auto;
-  padding: 15px 1%;
-  position: relative;
-  opacity:0.8;
-  filter:alpha(opacity:80);
-  }
-  #link{
-  width: 60%;
-  padding: 5px;
-  background-color: #000000;
-  border-width: 2px;
-  border-color: #8A1565;
-  font-size: 0.8em;
-  font-family: Happy Monkey;
-  font-weight: bold;
-  text-shadow: 0 0 0.15em #4F0C3A;
-  text-align: justify;
-  color: #FF0000;
-  vertical-align: middle;
   }
 
 div.cams{
