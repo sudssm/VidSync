@@ -69,7 +69,7 @@ function showWelcomeMessage () {
       dataRef.update({type: type, video: key});
     }
     else if (vid.indexOf(".mp4") > -1){
-      dataRef.update({type:"mp4", video: vid});
+      dataRef.update({type:"mp4", video: $("#vid")[0].value});
     }
     else
       alert ("link not recognized");
@@ -90,15 +90,16 @@ function makeMp4Player(data) {
   mp4player.onReady(function() {
     var instastop = true;
     mp4player.onPlay(function(){
-      if (instastop)
-        mp4player.pause();
-      instastop = false;
+      if (instastop){
+        instastop = false;
+        mp4player.pause(true);
 
-      //mp4player.onSeek(mp4SeekListener);
-      mp4player.onPlay(function() {mp4PlayPauseListener(true)});
-      mp4player.onPause(function() {mp4PlayPauseListener(false)});
+        //mp4player.onSeek(mp4SeekListener);
+        mp4player.onPlay(function() {mp4PlayPauseListener(true)});
+        mp4player.onPause(function() {mp4PlayPauseListener(false)});
 
-      handleMp4Inc(data);
+        handleMp4Inc(data);
+      }
     })
     mp4player.play(true);
   })
@@ -148,10 +149,14 @@ function handleYtInc(data) {
 }
 
 function handleMp4Inc(data) {
+  console.log("HANDLE");
+  disableUntil = data.playing;
   if (data.playing)
     data.seek += now() - data.timestamp;
 
   mp4player.seek(data.seek);
+
+  console.log("seeked");
 
   if (data.playing)
     mp4player.play(true);
@@ -199,14 +204,16 @@ function ytListener (value){
 
 function mp4PlayPauseListener (play){
   if (disableUntil != null){
+    console.log("ignoring " + play)
     if (disableUntil == play)
       disableUntil = null;
     return;
   }
+  console.log(play);
   disableUntil = play;
 
   mp4player.pause(play);
-  outgoing (play, mp4player.getPosition());
+  //outgoing (play, mp4player.getPosition());
 }
 
 function now () {
