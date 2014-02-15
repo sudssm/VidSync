@@ -64,10 +64,16 @@
             }
 
 
+window.onload = function() {
+       //when the document is finished loading, replace everything
+       //between the <a ...> </a> tags with the value of splitText
+   document.getElementById('session').innerHTML=document.getElementById('share').innerHTML + sessionId;
+} 
+
         </script>
     </head>
     <body>
-      <a href='http://www.smuralidhar.com/pennapps2014s/webcam.php?'+$sessionId+'\''>Share!</a>
+      <a id='share' href='http://www.smuralidhar.com/pennapps2014s/webcam.php?'>Share!</a>
    </body>
 </html>
 
