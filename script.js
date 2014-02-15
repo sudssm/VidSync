@@ -7,6 +7,7 @@ var tokboxSession = null;
 var tokboxToken = null;
 
 var disableUntil;
+var enablehack = false;
 
 var last_in = null;
 
@@ -171,13 +172,15 @@ function handleMp4Inc(data) {
 
   mp4player.play(data.playing);
 
-  setTimeout(hack, 100);
+  if (enablehack){
+    enablehack = false;
+    setTimeout(hack, 100);
+  }
 
   function hack (){
     console.log("hacking");
     if (disableUntil == data.playing){
       mp4player.play(data.playing);
-      setTimeout(hack, 100);
     }
   }
 
@@ -234,6 +237,8 @@ function mp4PlayPauseListener (play){
   disableUntil = play;
 
   mp4player.pause(play);
+  if (!play)
+    enablehack = true;
   outgoing (play, mp4player.getPosition());
 }
 
