@@ -13,6 +13,10 @@ var apiKey = <?php print API_Config::API_KEY?>;
 var sessionId = '<?php print $sessionId; ?>';
 var token = '<?php print $apiObj->generate_token($sessionId); ?>';
 
+print 'apiKey' + apiKey;
+print 'sessionId' + sessionId;
+print 'token' + token;
+
 var connectionCount = 0;
 TB.setLogLevel(TB.DEBUG);
 TB.addEventListener('exception', exceptionHandler);
@@ -152,8 +156,18 @@ function subscribeToStream(stream) {
 <body>
 <?php echo 'it works?' ?>
 <script type='text/javascript'>
+
+//Create session
+var session = TB.initSession(sessionID);
+session.connect(apiKey, token);
+
+session.addEventListener("sessionConnected", 
+                           sessionConnectedHandler);
+ 
+session.addEventListener("streamCreated", 
+                         streamCreatedHandler);
+
 //UI
-// Replace with your API key and replacement element ID:
 var publisher = TB.initPublisher(apiKey,
                                  'myPublisher',
                                  {width:400, height:300})
