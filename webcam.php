@@ -2,6 +2,7 @@
 <?php include 'SDK/OpenTokArchive.php'?>
 <?php include 'SDK/OpenTokSDK.php'?>
 <?php include 'SDK/OpenTokeSession.php'?>
+<?php include 'home.php'?>
 
 <html>
 <head>
@@ -10,7 +11,7 @@
 <script type='text/javascript'>
 var apiKey = <?php print API_Config::API_KEY?>;
 var sessionId = '<?php print $sessionId; ?>';
-var token = '<?php print $apiObj->generate_token($sessionId); ?>
+var token = '<?php print $apiObj->generate_token($sessionId); ?>';
 
 var connectionCount = 0;
 TB.setLogLevel(TB.DEBUG);
