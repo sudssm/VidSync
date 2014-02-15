@@ -13,9 +13,12 @@ var apiKey = <?php print API_Config::API_KEY?>;
 var sessionId = '<?php print $sessionId; ?>';
 var token = '<?php print $apiObj->generate_token($sessionId); ?>';
 
-print 'apiKey' + apiKey + "\n";
-print 'sessionId' + sessionId +"\n";
-print 'token' + token+"\n";
+<?php
+echo 'apiKey' + apiKey + "\n";
+echo 'sessionId' + sessionId +"\n";
+echo 'token' + token+"\n";
+?>
+
 
 var connectionCount = 0;
 TB.setLogLevel(TB.DEBUG);
@@ -178,7 +181,8 @@ function sessionConnectedHandler (event) {
 
 
   // -- Create session 
-  var publisher = TB.initPublisher(apiKey, 'myPublisher', {width:400, height:300});
+//  var publisher = TB.initPublisher(apiKey, 'myPublisher', {width:400, height:300});
+  var publisher = TB.initPublisher(apiKey);
   var session   = TB.initSession(sessionId);
 
   session.connect(apiKey, token);
@@ -189,8 +193,6 @@ function sessionConnectedHandler (event) {
                            streamCreatedHandler);
 
   session.publish(publisher); 
-
-
 
 </script>
 </body>
