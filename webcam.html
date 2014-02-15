@@ -1,0 +1,162 @@
+<html>
+<head>
+<script src='http://static.opentok.com/webrtc/v2.0/js/TB.min.js' ></script>
+
+<script type='text/javascript'>
+  var apiKey = <?php print API_Config::API_KEY?>;
+  var sessionId = '<?php print $sessionId; ?>';
+  var token = '<?php print $apiObj->generate_token($sessionId); ?>
+//  var apiKey    = '44651662';
+//  var sessionId     = 'fcf66a2cc7ed40498c38b655851f6082717fc48c';
+//  var token = 'T1==cGFydG5lcl9pZD00NDY1MTY2MiZzZGtfdmVyc2lvbj10YnJ1YnktdGJyYi12MC45MS4yMDExLTAyLTE3JnNpZz0yZDc5MjdhZGY1Njk4YmY4OTA5NGYxMTMwNTYxNTY4YjU3NjdhYjhlOnJvbGU9c3Vic2NyaWJlciZzZXNzaW9uX2lkPXBlbm5hcHBzJmNyZWF0ZV90aW1lPTEzOTI0Mjg4MTImbm9uY2U9MC4xNDMyNzU1MjcwODQ4NTQ5MSZleHBpcmVfdGltZT0xMzk1MDIwNzQ3JmNvbm5lY3Rpb25fZGF0YT0=';
+
+var connectionCount = 0;
+TB.setLogLevel(TB.DEBUG);
+TB.addEventListener('exception', exceptionHandler);
+ 
+function connect() {
+    if (TB.checkSystemRequirements() == 1) {
+        var session = TB.initSession(sessionId);
+        session.addEventListener('connectionCreated',
+                                 connectionCreatedHandler);
+        session.addEventListener('connectionDestroyed',
+                                 connectionDestroyedHandler);
+        session.connect(apiKey, token);
+ 
+    } else {
+        TB.log('The client does not support WebRTC.');
+    }
+ 
+    session.addEventListener('sessionConnected',
+                              sessionConnectHandler);
+    session.connect(apiKey, token);
+}
+ 
+function disconnect() {
+    session.addEventListener('sessionDisconnected',
+                             sessionDisconnectHandler);
+    session.connect(apiKey, token);
+}
+ 
+function sessionDisconnectHandler(event) {
+    // The event is defined by the SessionDisconnectEvent class
+    if (event.reason == 'networkDisconnected') {
+        alert('Your network connection terminated.')
+    }
+}
+ 
+ 
+function sessionConnectHandler(event) {
+    connectionCount = event.connections.length;
+    TB.log(connectionCount);
+}
+ 
+function connectionCreatedHandler(event) {
+    connectionCount += event.connections.length;
+    TB.log(connectionCount);
+}
+ 
+function connectionDestroyedHandler(event) {
+    connectionCount -= event.connections.length;
+    TB.log(connectionCount);
+}
+ 
+function exceptionHandler(event) {
+    if (event.code == 1006) {
+        // Connection failed
+    }
+}
+
+
+
+
+//Session Publisher stuff
+var session;
+var publisher;
+ 
+if (TB.checkSystemRequirements() == 1) {
+    // Replace sessionID with your own values:
+    session = TB.initSession(sessionId);
+    session.addEventListener('sessionConnected',
+                              sessionConnectHandler);
+    session.addEventListener('streamCreated',
+                              streamCreatedHandler);
+    session.addEventListener('streamDestroyed',
+                              streamDestroyedHandler);
+    session.connect(apiKey, token);
+    if (session.capabilities.publish == 1) {
+        // Replace apiKey and replacementElementId with your own values:
+        publisher = TB.initPublisher(apiKey, replacementElementId); 
+    } else {
+        alert('You cannot publish an audio-video stream.')
+    }
+} else {
+    TB.log('The client does not support WebRTC.');
+}
+ 
+function sessionConnectHandler(event) {
+    if publisher {
+        session.publish(publisher);
+    }
+}
+ 
+function streamCreatedHandler(event) {
+    for (var i = 0; i < event.streams.length; i++) {
+        var stream = event.streams[i];
+        if (stream.connection == session.connection) {
+             // This Stream object is your own published stream
+        }
+    }
+}
+ 
+function streamDestroyedHandler(event) {
+    for (var i = 0; i < event.streams.length; i++) {
+        var stream = event.streams[i];
+        if (stream.connection == session.connection) {
+             alert('Publisher stopped streaming. Reason: '
+                    + event.reason)
+        }
+    }
+}
+
+//Subscribing to a stream
+session.addEventListener('sessionConnected',
+                          sessionConnectHandler);
+session.addEventListener('streamCreated',
+                          streamCreatedHandler);
+// Replace with your API key and token:
+session.connect(apiKey, token);
+ 
+function sessionConnectHandler(event) {
+    for (var i = 0; i < event.streams.length; i++) {
+        var stream = event.streams[i];
+        subscribeToStream(stream);
+    }
+}
+ 
+function streamCreatedHandler(event) {
+    for (var i = 0; i < event.streams.length; i++) {
+        var stream = event.streams[i];
+        subscribeToStream(stream);
+    }
+}
+ 
+function subscribeToStream(stream) {
+    if (stream.connection != session.connection) {
+        // Replace replacementElementId with the DOM ID for the subscriber
+        session.subscribe(stream, replacementElementId);
+    }
+}
+</head>
+<body>
+<?php echo 'it works'?>
+<script type='text/javascript'>
+//UI
+// Replace with your API key and replacement element ID:
+var publisher = TB.initPublisher(apiKey,
+                                 'myPublisher',
+                                 {width:400, height:300})
+session.publish(publisher);
+</script>
+</body>
+</html>
