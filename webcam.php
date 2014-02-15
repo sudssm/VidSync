@@ -21,8 +21,8 @@
 <body>
 <script type="text/javascript">
   var apiKey = <?php print API_Config::API_KEY?>;
-  var sessionId = '<?php print $sessionId; ?>';
-  var token = '<?php print $apiObj->generate_token($sessionId); ?>';
+  var sessionId = '<?php print $session; ?>';
+  var token = '<?php print $apiObj->generate_token($session); ?>';
  
   function sessionConnectedHandler (event) {
      session.publish( publisher );
