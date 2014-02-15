@@ -70,10 +70,10 @@ function outgoing (playing, seek) {
 }
 
 function showWelcomeMessage () {
-  $("#youtube").html("Choose a video: "+
-    "<input id='vid' type='text' placeholder='Choose a video'></input>" +
+  $("#ytapiplayer").html("Choose a video: "+
+    "<input id='vid' type='text' placeholder='Choose a video></input>" +
     "<button id='choose'>Load</button>");
-  $("#choose").click(function(){
+  $("#youtube").click(function(){
     var vid = $("#vid")[0].value + "#";
     if (vid.indexOf("youtube.com")>-1){
       var key = vid.substring(vid.indexOf("v=")+2, vid.indexOf("#"));
