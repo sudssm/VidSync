@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        
+        <meta http-equiv="X-UA-Compatible" content="chrome=1">
+        <script src="https://swww.tokbox.com/webrtc/v2.0/js/TB.min.js" type="text/javascript" charset="utf-8"></script>
+        <link href="/css/demos.css" type="text/css" rel="stylesheet" >
+        <script type="text/javascript" charset="utf-8">
+            TB.addEventListener("exception", exceptionHandler);
+            var session = TB.initSession("1_MX4xMTI3fn5TYXQgRmViIDE1IDEyOjQ3OjUzIFBTVCAyMDE0fjAuNDIxMTI3Njh-"); // Replace with your own session ID. See https://dashboard.tokbox.com/projects
+            TB.setLogLevel(TB.DEBUG);
+            session.addEventListener("sessionConnected", sessionConnectedHandler);
+            session.addEventListener("streamCreated", streamCreatedHandler);
+            session.connect(1127, "T1==cGFydG5lcl9pZD0xMTI3JnNpZz03MWU0MjZkMzIzODkzZDk3YTNjNzM4MTcwNmE1NWY2ZDExN2ZlYTA3OnNlc3Npb25faWQ9MV9NWDR4TVRJM2ZuNVRZWFFnUm1WaUlERTFJREV5T2pRM09qVXpJRkJUVkNBeU1ERTBmakF1TkRJeE1USTNOamgtJmNyZWF0ZV90aW1lPTEzOTI0OTcyODEmbm9uY2U9NjA4NCZyb2xlPXB1Ymxpc2hlcg=="); // Replace with your API key and token. See https://dashboard.tokbox.com/projects
+
+            function sessionConnectedHandler(event) {
+                 console.log("connected");
+                 subscribeToStreams(event.streams);
+                 session.publish();
+            }
+
+            function streamCreatedHandler(event) {
+                console.log("created");
+                subscribeToStreams(event.streams);
+            }
+
+            function subscribeToStreams(streams) {
+                for (var i = 0; i < streams.length; i++) {
+                    var stream = streams[i];
+                    if (stream.connection.connectionId != session.connection.connectionId) {
+                        session.subscribe(stream);
+                    }
+                }
+            }
+
+            function exceptionHandler(event) {
+                alert(event.message);
+            }
+
+
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
+
