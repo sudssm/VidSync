@@ -35,6 +35,7 @@ width: 100%;
   opacity:0.8;
   filter:alpha(opacity:80);
   }
+
 div.container{
 clear: none; 
 height: 93%;
@@ -59,7 +60,7 @@ text-align: center;
 color: #FFFFFF;
 vertical-align: middle;
 }
-  div.youtube{
+  div.youtube, #myytplayer{
   width: 90%
   margin: 0 auto;
   padding-left: 0 1%;
