@@ -16,10 +16,8 @@
     $sdk = new OpenTokSDK(API_Config::API_KEY,API_Config::API_SECRET);
 
 
-    $creds = array('sessionId'=>$session->getSessionId(), 'token'=>$sdk->generate_token($session->getSessionId());
+    $creds = array('sessionId'=>$session->getSessionId(), 'token'=>$sdk->generate_token($session->getSessionId()))x;
     echo $creds;
     echo json_encode($creds);
-   
- 
 ?>
 
