@@ -1,9 +1,7 @@
-
 <?php include 'SDK/API_Config.php'?>
 <?php include 'SDK/OpenTokArchive.php'?>
 <?php include 'SDK/OpenTokSDK.php'?>
 <?php include 'SDK/OpenTokeSession.php'?>
-<?php include 'home.php'?>
 
 <html>
 <head>
