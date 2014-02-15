@@ -5,26 +5,24 @@
     <script src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js" ></script>
     <script>
       var dataRef = new Firebase("https://sudarshan.firebaseio.com/");
-      var playing = false;
       var ytplayer = null;
 
       dataRef.on('value', function(data){
+        console.log(data);
         playing = data.val();
-        console.log(playing);
-        playPause();
+        playPause(playing);
       });
       
       function doClick() {
-        playing = !playing;
-        dataRef.set(playing, function(result){
-          playPause();
-        });
+        //playing = !playing;
+        //dataRef.set(playing, function(result){
+        //  playPause();
+        //});
+        playPause(ytplayer.getPlayerState() != 1)
       }
 
-      function playPause(){
-        if(ytplayer==null)
-          return;
-        if(playing){
+      function playPause(play){
+        if(play){
           ytplayer.playVideo();
         }
         else {
@@ -34,12 +32,38 @@
       window.onload = function(){
         var params = { allowScriptAccess: "always" };
         var atts = { id: "myytplayer" };
-        swfobject.embedSWF("http://www.youtube.com/apiplayer?video_id=hT_nvWreIhg&version=3&enablejsapi=1&playerapiid=ytplayer&version=3",
-                           "ytapiplayer", "425", "356", "8", null, null, params, atts);
-
+        swfobject.embedSWF("http://www.youtube.com/apiplayer?video_id=hT_nvWreIhg&version=3&enablejsapi=1&playerapiid=ytplayer&version=3", "ytapiplayer", "425", "356", "8", null, null, params, atts);            
+      }
+      function onYouTubePlayerReady(playerId) {
         ytplayer = $("#myytplayer")[0];
+
+        ytplayer.addEventListener("onStateChange", "stateListener"); 
+          
         playPause();
       }
+      function stateListener (value){
+        switch (value)
+        {
+          case -1:
+            console.log("unstarted");
+            break;
+          case 0:
+            console.log("ended");
+            break;
+          case 1:
+            console.log("playing");
+            break;
+          case 2:
+            console.log("paused");
+            break;
+          case 3:
+            console.log("buffering");
+            break;
+          case 5:
+            console.log("cued");
+            break;
+        }
+      };
     </script>
   </head>
   <body>
