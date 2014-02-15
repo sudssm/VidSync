@@ -26,11 +26,11 @@
         <script type="text/javascript" charset="utf-8">
 
         var apiKey = <?php print API_Config::API_KEY?>;
-        var sessionId = '<?php print $session->getSessionId(); ?>';
-        var token = '<?php print $sdk->generate_token($session->getSessionId()); ?>';
+//        var sessionId = '<?php print $session->getSessionId(); ?>';
+//        var token = '<?php print $sdk->generate_token($session->getSessionId()); ?>';
 
-//          var sessionId = '2_MX40NDY1MTY2Mn5-U2F0IEZlYiAxNSAxMzo0NjoyOCBQU1QgMjAxNH4wLjE1MDYzODM0fg';
-//          var token = 'T1==cGFydG5lcl9pZD00NDY1MTY2MiZzaWc9MDdiOWI3MjBmNWEwNTVmZDhlMzM2MWVhODZhNDhlNDljNGY0M2I2ZjpzZXNzaW9uX2lkPTJfTVg0ME5EWTFNVFkyTW41LVUyRjBJRVpsWWlBeE5TQXhNem8wTmpveU9DQlFVMVFnTWpBeE5INHdMakUxTURZek9ETTBmZyZjcmVhdGVfdGltZT0xMzkyNTAwNzg4JnJvbGU9cHVibGlzaGVyJm5vbmNlPTEzOTI1MDA3ODguMjQ3MTk0NzA1MDQwMA==';
+          var sessionId = '2_MX40NDY1MTY2Mn5-U2F0IEZlYiAxNSAxMzo0NjoyOCBQU1QgMjAxNH4wLjE1MDYzODM0fg';
+          var token = 'T1==cGFydG5lcl9pZD00NDY1MTY2MiZzaWc9MDdiOWI3MjBmNWEwNTVmZDhlMzM2MWVhODZhNDhlNDljNGY0M2I2ZjpzZXNzaW9uX2lkPTJfTVg0ME5EWTFNVFkyTW41LVUyRjBJRVpsWWlBeE5TQXhNem8wTmpveU9DQlFVMVFnTWpBeE5INHdMakUxTURZek9ETTBmZyZjcmVhdGVfdGltZT0xMzkyNTAwNzg4JnJvbGU9cHVibGlzaGVyJm5vbmNlPTEzOTI1MDA3ODguMjQ3MTk0NzA1MDQwMA==';
 
             TB.addEventListener("exception", exceptionHandler);
             var session = TB.initSession(sessionId); // Replace with your own session ID. 
@@ -65,8 +65,6 @@
 
 
 window.onload = function() {
-       //when the document is finished loading, replace everything
-       //between the <a ...> </a> tags with the value of splitText
    document.getElementById('share').href= 'http://www.smuralidhar.com/pennapps2014s/webcam.php?'+sessionId;
 } 
 
@@ -74,8 +72,8 @@ window.onload = function() {
     </head>
     <body>
 <?php
-  echo "<a id='share' href='http://www.smuralidhar.com/pennapps2014s/webcam.php?'>Share!</a>
-
+  echo "<a id='share' href='http://www.smuralidhar.com/pennapps2014s/webcam.php?'>Share!</a>"
+?>
    </body>
 </html>
 
