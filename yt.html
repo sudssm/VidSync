@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <script src='https://cdn.firebase.com/v0/firebase.js'></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js" ></script>
+    <script>
+      var dataRef = new Firebase("https://sudarshan.firebaseio.com/");
+      var playing = false;
+      var ytplayer = null;
+
+      dataRef.on('value', function(data){
+        playing = data.val();
+        console.log(playing);
+        playPause();
+      });
+      
+      function doClick() {
+        playing = !playing;
+        dataRef.set(playing, function(result){
+          playPause();
+        });
+      }
+
+      function playPause(){
+        if(ytplayer==null)
+          return;
+        if(playing){
+          ytplayer.playVideo();
+        }
+        else {
+          ytplayer.pauseVideo();
+        }
+      }
+      window.onload = function(){
+        var params = { allowScriptAccess: "always" };
+        var atts = { id: "myytplayer" };
+        swfobject.embedSWF("http://www.youtube.com/apiplayer?video_id=hT_nvWreIhg&version=3&enablejsapi=1&playerapiid=ytplayer&version=3",
+                           "ytapiplayer", "425", "356", "8", null, null, params, atts);
+
+        ytplayer = $("#myytplayer")[0];
+        playPause();
+      }
+    </script>
+  </head>
+  <body>
+  <button onclick="doClick()" >Play/Pause</button>
+  <div id="ytapiplayer">
+     You need Flash player 8+ and JavaScript enabled to view this video.
+   </div>
+  </body>
+</html>
