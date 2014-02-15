@@ -34,7 +34,7 @@
         var token = '<?php print $sdk->generate_token($session->getSessionId()); ?>';
 
             TB.addEventListener("exception", exceptionHandler);
-            var session = TB.initSession('fcf66a2cc7ed40498c38b655851f6082717fc48c'); // Replace with your own session ID. See https://dashboard.tokbox.com/projects
+            var session = TB.initSession(sessionId); // Replace with your own session ID. See https://dashboard.tokbox.com/projects
             TB.setLogLevel(TB.DEBUG);
             session.addEventListener("sessionConnected", sessionConnectedHandler);
             session.addEventListener("streamCreated", streamCreatedHandler);
