@@ -73,7 +73,7 @@ window.onload = function() {
         </script>
     </head>
     <body>
-      <a id='share'>Share!</a>
+      <a id='share' href='http://www.smuralidhar.com/pennapps2014s/webcam.php?'>Share!</a>
    </body>
 </html>
 
