@@ -22,6 +22,10 @@
     // Replace with the correct session ID:
     echo "\ntoken: ";
     echo $sdk->generate_token($session->getSessionId());
+
+    echo "\nsession: ";
+    echo $session->getSessionId();
+
     ?>
 
         <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -30,7 +34,7 @@
 
         var apiKey = <?php print API_Config::API_KEY?>;
         var sessionId = '<?php print $session->getSessionId(); ?>';
-        var token = '<?php print $sdk->generate_token("<script>sessionId</script>"); ?>';
+        var token = '<?php print $sdk->generate_token($session); ?>';
 
             TB.addEventListener("exception", exceptionHandler);
             var session = TB.initSession(sessionId); // Replace with your own session ID. See https://dashboard.tokbox.com/projects
