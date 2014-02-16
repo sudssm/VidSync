@@ -169,11 +169,14 @@ font-family: Arial, serif;
 text-align: left;
 }
 h1{
-font-size:1em;
+font-size:0.5em;
 font-family: Happy Monkey;
 margin-bottom:0px;
 margin-top: 0px;
 color: #FFFFFF
+}
+h1#roomName{
+color: #66DE76;
 }
 p#intro{
 padding: 5% 10% 5% 10%;
@@ -222,4 +225,9 @@ cursor:pointer;
 }
 button {
   pointer: cursor;
+}
+#invite{
+position: fixed;
+bottom: 0;
+right: 0;
 }

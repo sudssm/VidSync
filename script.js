@@ -90,7 +90,7 @@ function incoming (fb) {
     tokboxSession = data.sessionId;
     tokboxToken = data.token;
     showWelcomeMessage();
-    $("#chat").prepend("<h1>"+roomName+"</h1>");
+    $("#chat").prepend("<h1 id='roomName'>"+roomName+"</h1>");
     $("#chat").show();
     runWebcam(tokboxSession, tokboxToken);
     first_run = false;
