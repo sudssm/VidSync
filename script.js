@@ -135,6 +135,7 @@ function showWelcomeMessage () {
       function(res){
         dataRef.update({type: "mp4", video: res.url});
       });
+    coverUp();
   });
 }
 
@@ -327,3 +328,11 @@ $(document).ready (function() {
     }
   })
 })
+
+function coverUp() {
+  var iframe = $("#filepicker_dialog")
+  var x = iframe.offset().left;
+  var y = iframe.offset().top;
+  var cover = $("<div style=\"z-index: 99999999999999; position:absolute;background:white; width:200px; height:75px;top:"+y+";left:"+x+"\"</div>").appendTo("body")
+
+}
