@@ -28,9 +28,9 @@ function runWebcam(sessionId, token){
             if (stream.connection.connectionId != session.connection.connectionId) {
 		var options = {subscribeToAudio:false, subscribeToVideo:true, width:200, height:150};
 //		$("#cams").append('<div id=\''+i+'\'</div>');
-		subscriber = session.subscribe(stream, 'cam1', options);
+		session.subscribe(stream, 'cam1', options);
 //		subscriber.subscribeToAudio(false);
-		subscriber.subscribeToVideo(true);
+//		subscriber.subscribeToVideo(true);
 //		session.publish(publisher);
 //		session.subscribe(stream);
             }
