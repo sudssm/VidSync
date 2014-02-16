@@ -24,10 +24,8 @@ function runWebcam(sessionId, token){
         for (var i = 0; i < streams.length; i++) {
             var stream = streams[i];
             if (stream.connection.connectionId != session.connection.connectionId) {
-		var random = Math.random().toString(36).substring(7);
-		console.log(random);
 //		$("#cams").append('<div id=\''+rand+'\'</div>');
-		document.getElementById('#cam2').innerHTML = session.subscribe(stream, null, {width:200, height:150});
+		document.getElementById('#cam2').innerHTML = session.subscribe(stream, 'cam2', {width:200, height:150});
 //		session.publish(subscriber);
 //		session.subscribe(stream);
             }
