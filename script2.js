@@ -45,7 +45,7 @@ function incoming (fb) {
     showWelcomeMessage();
   }
 
-  else if (data.type == "YT") {
+  if (data.type == "YT") {
     if (ytplayer == null)
       makeYtPlayer(data.video);
     else 
