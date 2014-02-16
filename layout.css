@@ -187,14 +187,6 @@ color: #FFFFFF;
 }
 
 /*Other*/
-img{
-border-width: 5px;
-border-color: #001200;
-margin: 7px;
-border-radius: 20px; /*rounded edges*/
-cursor:pointer;
-}
-
 #chat {
   margin-top: 1px;
   text-align: left;
@@ -228,7 +220,7 @@ button {
 }
 #invite{
 position: fixed;
-top: 0;
-right: 0;
-font-size: 10px;
+top: 10px;
+right: 10px;
+font-size: 11px;
 }
