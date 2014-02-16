@@ -145,8 +145,8 @@ text-decoration:none;
 border: 0;
 padding: 0;
 background: url('popcorn.png') no-repeat;
-height: 70px;
-width: 58px;
+height: 80px;
+width: 60px;
 font-style: bold;
 font-family: 'Lily Script One', Georgia, Serif; 
 font-size: 1em;
@@ -158,8 +158,6 @@ text-shadow: 0 0 0.2em #FFF, 0 0 0.2em #FFF,
 border: 0;
 padding: 0;
 background: url('vidsync.png') no-repeat;
-height: 70px;
-width: 270px;
 }
 p{
 font-size: 12px;
