@@ -42,11 +42,9 @@ function incoming (fb) {
     roomName = name;
     tokboxSession = data.sessionId;
     tokboxToken = data.token;
-  }
-
-  if (data.type == null){
     showWelcomeMessage();
   }
+
   else if (data.type == "YT") {
     if (ytplayer == null)
       makeYtPlayer(data.video);
