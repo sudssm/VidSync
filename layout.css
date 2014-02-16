@@ -47,20 +47,18 @@ width: 100%;
   text-align: justify;
   color: #FF0000;
   vertical-align: middle;
-
   }
 
 div.container{
 clear: none; 
 height: 93%;
 width: 100%;
-
 }
 
-div.#ytapiplayer{
+#ytapiplayer{
 /*position: absolute;*/
 float: left;
-width: 80%;
+width: 50%;
 height: 100%;
 /*display:inline-block;*/
 border-width: 5px;
@@ -75,7 +73,6 @@ color: #FFFFFF;
 vertical-align: middle;
 margin: 0 auto;
 padding: 0 1%;
-position: relative;
 }
 
 div.cams{

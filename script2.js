@@ -95,7 +95,7 @@ function makeYtPlayer(vid) {
 }
 function makeMp4Player(data) {
   disableUntil = null;
-  jwplayer("ytapiplayer").setup({file: data.video, width: "100%", height: "100%"});
+  jwplayer("ytapiplayer").setup({file: data.video, width: "80%", height: "80%"});
   mp4player = jwplayer();
   mp4player.onReady(function() {
     var instastop = true;
