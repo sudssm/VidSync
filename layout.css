@@ -81,7 +81,8 @@ vertical-align: middle;
   }
 
 div.cams{
-float: right;
+float: left;
+position: relative;
 width: 20%;
 height: 100%;
 border-width: 5px;
