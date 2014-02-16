@@ -86,6 +86,7 @@ function incoming (fb) {
   }
 
   if (last_in && (data.video != last_in.video || data.type != last_in.type)){
+    $("#container").html("<div id='ytapiplayer'></div>");
     ytplayer = null;
     mp4player = null;
   }
