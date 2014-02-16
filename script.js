@@ -168,21 +168,16 @@ function handleMp4Inc(data) {
   if (data.playing)
     data.seek += now() - data.timestamp;
 
-  //mp4player.seek(data.seek);
+  mp4player.seek(data.seek);
 
   mp4player.play(data.playing);
 
-  if (enablehack){
-    enablehack = false;
-    setTimeout(hack, 100);
-  }
-
-  function hack (){
-    console.log("hacking");
-    if (disableUntil == data.playing){
-      mp4player.play(data.playing);
+  setTimeout(function(){
+    if (!data.playing && mp4player.getState()=="PLAYING"){
+      console.log("hacking");
+      mp4player.play(false);
     }
-  }
+  }, 10);
 
   console.log('done handle');
 }
@@ -237,9 +232,12 @@ function mp4PlayPauseListener (play){
   disableUntil = play;
 
   mp4player.pause(play);
-  if (!play)
-    enablehack = true;
   outgoing (play, mp4player.getPosition());
+}
+function mp4SeekListener () {
+  var goal = mp4player.getState() == "PLAYING";
+  disableUntil = goal
+  outgoing (goal, mp4player.getPosition());
 }
 
 function now () {
