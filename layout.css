@@ -186,6 +186,7 @@ border-radius: 20px; /*rounded edges*/
   margin-top: 10px;
   text-align: left;
   overflow-y: auto;
+  display: none
 }
 #chat ul {
   list-style-type: none;
