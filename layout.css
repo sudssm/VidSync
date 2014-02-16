@@ -139,6 +139,8 @@ width: 58px;
 font-style: bold;
 font-family: 'Lily Script One', Georgia, Serif; 
 font-size: 1em;
+text-shadow: 0 0 0.2em #FFF, 0 0 0.2em #FFF,
+        0 0 0.2em #FFF
 }
 
 p#head{
