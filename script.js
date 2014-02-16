@@ -81,9 +81,8 @@ function outgoing (playing, seek, callback) {
 }
 
 function showWelcomeMessage () {
-  $("#inputs").html("Choose a video: "+
-    "<input id='vid' type='text' placeholder='Choose a video'></input>" +
-    "<button id='choose'>Load</button>");
+  $("#inputs").html("<input id='vid' type='text' placeholder='Choose a video'></input>" +
+    "<button id='choose'>Load</button><button id='upload'>Upload</button>");
   $("#choose").click(function(){
     var vid = $("#vid")[0].value + "#";
     if (vid.indexOf("youtube.com")>-1){
