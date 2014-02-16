@@ -8,7 +8,7 @@ function runWebcam(sessionId, token){
     session.addEventListener("streamCreated", streamCreatedHandler);
 
     session.addEventListener("streamDestroyed", streamDestroyedHandler);
- 
+
     session.connect(apiKey, token);
     
     function sessionConnectedHandler(event) {
@@ -45,11 +45,14 @@ function runWebcam(sessionId, token){
     function streamDestroyedHandler(event) {
 	for (var i = 0; i < event.streams.length; i++) {
             var stream = event.streams[i];
-	    session.unsubscribe(stream);
-//            alert("Stream stopped streaming. Reason: " + event.reason)
+            if (stream.connection != session.connection) {
+		event.preventDefault();
+		var subscribers = session.getSubscribersForStream();
+		#("#cams").append("<div id='cam1'></div>");
+            }
 	}
     }
-
+    
     
     function exceptionHandler(event) {
         alert(event.message);
