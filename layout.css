@@ -105,6 +105,13 @@ vertical-align: middle;
   #chatbox{  
   width: 80%;
   height: 300px;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  display: none;
+}
   }
   div.chat{
   height: 250px;
