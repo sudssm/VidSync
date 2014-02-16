@@ -133,13 +133,12 @@ text-decoration:none;
 button{
 border: 0;
 padding: 0;
-background: url('http://www.seas.upenn.edu/~maryx/popcorn.png') no-repeat;
+background: url('http://www.seas.upenn.edu/~maryx/popcorn.png') no-repeat 0 0 30 0;
 height: 90px;
 width: 80px;
 font-style: bold;
 font-family: 'Lily Script One', Georgia, Serif; 
 font-size: 1em;
-line-height: 120%;
 }
 
 p#head{
