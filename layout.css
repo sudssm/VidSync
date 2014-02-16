@@ -45,14 +45,14 @@ width: 100%;
   filter:alpha(opacity:80);
   background-color: #000000;
   border-width: 1px;
-  border-color: #8A1565;
+  border-color: #FF0000;
   border-radius: 2px;
   font-size: 1.3em;
   font-family: "Happy Monkey";
   font-weight: bold;
   text-shadow: 0 0 0.15em #4F0C3A;
   text-align: justify;
-  color: #FF0000;
+  color: #EBD026;
   vertical-align: middle;
 
   }
@@ -109,12 +109,16 @@ vertical-align: middle;
   left: 0;
   }
   div.chat{
-  width: 70%;
-  height: 50%;
+  width: 300px;
+  height: 300px;
   margin: 0 auto;
   padding: 10px;
   position: relative;
-  }
+  border-radius: 5px;
+  border: 3px;
+  border-width: 5px;
+  border-color: #FF0000;  
+}
   
 /*Non divs*/
 a {
@@ -148,6 +152,12 @@ font-size: 1em;
 text-shadow: 0 0 0.2em #FFF, 0 0 0.2em #FFF,
         0 0 0.2em #FFF
 }
+
+p{
+font-size: 12px;
+font-family: Arial, serif;
+text-align: left;
+}
 h1{
 font-size:1em;
 font-family: Happy Monkey;
@@ -155,7 +165,7 @@ margin-bottom:0px;
 margin-top: 0px;
 color: #FFFFFF
 }
-p,li{
+p#intro{
 padding: 2%;
 text-align: justify;
 font-size: 2em;
@@ -169,8 +179,4 @@ border-width: 5px;
 border-color: #001200;
 margin: 7px;
 border-radius: 20px; /*rounded edges*/
-}
-
-#mouse, #mouse2, #mouse3{
-position: absolute;
 }
