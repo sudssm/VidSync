@@ -85,7 +85,7 @@ function incoming (fb) {
     tokboxSession = data.sessionId;
     tokboxToken = data.token;
     showWelcomeMessage();
-    $("#chatbox").show();
+    $("#chat").show();
 
     runWebcam(tokboxSession, tokboxToken);
   }

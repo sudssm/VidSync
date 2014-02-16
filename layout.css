@@ -102,9 +102,14 @@ vertical-align: middle;
   top: 0;
   left: 0;
   }
-  div chatbox{  
-  width: 80%;
+  #chatbox{  
+  width: 200px;
   height: 300px;
+  position: fixed;
+  bottom: 10px;
+  right: 50px;
+  cursor: pointer;
+}
   }
   div.chat{
   height: 250px;
