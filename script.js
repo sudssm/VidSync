@@ -85,7 +85,7 @@ function incoming (fb) {
   console.log(data);
 
   if (!creating && data == null){
-    alert("room does not exist");
+    alert("This room does not exist! Creating a new room.");
     makeRoom(roomName);
     return;
   }
