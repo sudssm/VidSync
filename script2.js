@@ -26,7 +26,7 @@ function runWebcam(sessionId, token){
     function sessionConnectedHandler(event) {
         console.log("connected");
         subscribeToStreams(event.streams);
-//        var publisher = TB.initPublisher(apiKey, "cam1", {width:100, height:75});
+        var publisher = TB.initPublisher(apiKey, "cam1", {width:400, height:75});
 //	session.publish(publisher);
 	session.publish();
     }
