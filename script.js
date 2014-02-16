@@ -138,7 +138,7 @@ function makeMp4Player(data) {
             console.log(curr - loc);
             if (Math.abs (curr - loc) > 2 || 
                 data.playing != playing)
-              handleYtInc(data);
+              handleMp4Inc(data);
           })
         }, 2000);
       }
