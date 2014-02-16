@@ -103,13 +103,12 @@ vertical-align: middle;
   left: 0;
   }
   div.chat{
-  width: 300px;
+  width: 90%;
   height: 300px;
   margin: 0 auto;
   padding: 10px;
   position: relative;
-  border-radius: 5px;
-  border: 3px;
+  border: 3px solid;
   border-width: 5px;
   border-color: #FF0000;  
 }
@@ -147,13 +146,6 @@ text-shadow: 0 0 0.2em #FFF, 0 0 0.2em #FFF,
         0 0 0.2em #FFF
 }
 
-/*#logo{
-border: 0;
-padding: 0;
-background: url('vidsync.png') no-repeat;
-height: 40px;
-width: 165px;
-}*/
 p{
 font-size: 12px;
 font-family: Arial, serif;
@@ -183,7 +175,7 @@ border-radius: 20px; /*rounded edges*/
 }
 
 #chat {
-  margin-top: 10px;
+  margin-top: 5px;
   text-align: left;
   overflow-y: auto;
   display: none
@@ -198,14 +190,14 @@ border-radius: 20px; /*rounded edges*/
 }
 .name {
   padding-right: 1px;
-  font-size: 15px;
+  font-size: 12px;
 }
 .time {
   padding-right: 1px;
   font-size: 10px;
 }
 .msg {
-  font-size: 18px;
+  font-size: 12px;
 }
 .self .name{
   color: green;

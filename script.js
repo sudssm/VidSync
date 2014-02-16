@@ -314,7 +314,7 @@ $(document).ready (function() {
     e.preventDefault();
     var key = window.event ? e.keyCode : e.which;
     if (key == '13') {
-        chatOut($("#message")[0].value)
+        chatOut($("#message")[0].value);
     }
   })
 })
