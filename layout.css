@@ -102,22 +102,22 @@ vertical-align: middle;
   top: 0;
   left: 0;
   }
-  #chatbox{  
+  div.chat{
   width: 200px;
   height: 300px;
-  bottom: 10px;
-  right: 50px;
-}
-  }
-  div.chat{
-  height: 200px;
-  overflow: auto;
   margin: 0 auto;
   padding: 1px;
   border: 3px solid;
   border-width: 5px;
   border-color: #8C0A0A;  
   background-color: #8C0A0A;
+  }
+  #chatbox{  
+  height: 200px;
+  position: fixed;
+  bottom: 10px;
+  right: 50px;
+  overflow: auto;
   }
   #nickname, #message{
   width: 90%;
