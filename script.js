@@ -86,6 +86,11 @@ function incoming (fb) {
     alert("room does not exist");
   }
 
+  if (last_in && (data.video != last_in.video || data.type != last_in.type)){
+    ytplayer = null;
+    mp4player = null;
+  }
+
   if (first_run){
     tokboxSession = data.sessionId;
     tokboxToken = data.token;
