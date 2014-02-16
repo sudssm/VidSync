@@ -25,13 +25,14 @@ width: 100%;
 
 }
   #room, #vid{
+  width:50%;
   opacity:0.8;
   filter:alpha(opacity:80);
   background-color: #000000;
   border-width: 1px;
   border-color: #8A1565;
   border-radius: 2px;
-  font-size: 0.8em;
+  font-size: 1.3em;
   font-family: "Happy Monkey";
   font-weight: bold;
   text-shadow: 0 0 0.15em #4F0C3A;
@@ -142,15 +143,6 @@ font-family: 'Lily Script One', Georgia, Serif;
 font-size: 1em;
 text-shadow: 0 0 0.2em #FFF, 0 0 0.2em #FFF,
         0 0 0.2em #FFF
-}
-
-p#head{
-font-size:2em;
-font-family: 'Happy Monkey';
-margin-bottom:0px;
-margin-top: 0px;
-color: #FFFFFF
-
 }
 h1{
 font-size:1em;
