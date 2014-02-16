@@ -30,8 +30,7 @@ function makeRoom (name) {
         playing: false, 
         sessionId: res.sessionId, 
         token: res.token,
-        owner: id,
-        chat []
+        owner: id
       }
     );
     chatRef = chatRef.child(name);
