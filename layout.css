@@ -52,14 +52,12 @@ width: 100%;
 div.container{
 clear: none; 
 height: 93%;
-width: 100%;
+width: 50%;
 }
 
-#ytapiplayer{
+div.left{
 /*position: absolute;*/
-float: left;
-width: 50%;
-height: 100%;
+display: block;
 /*display:inline-block;*/
 border-width: 5px;
 border-color: #001200;
@@ -71,15 +69,19 @@ text-shadow: 0 0 0.15em #000000;
 text-align: center;
 color: #FFFFFF;
 vertical-align: middle;
+}
+div.youtube, #ytapiplayer, #myytplayer{
+float: left;
+width: 80%;
+height: 100%;
 margin: 0 auto;
-padding: 0 1%;
+padding-left: 0 1%;
 }
 
 div.cams{
 float: right;
 width: 20%;
 height: 100%;
-/*display:inline-block;*/
 border-width: 5px;
 border-color: #001200;
 border-radius: 1px;
