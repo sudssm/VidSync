@@ -28,7 +28,7 @@ function makeRoom (name) {
         sessionId: res.sessionId, 
         token: res.token,
         owner: id,
-        chat: [];
+        chat: []
       }
     );
     chatRef = dataRef.child("chat");
