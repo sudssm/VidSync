@@ -135,7 +135,7 @@ function showWelcomeMessage () {
   $("#inputs").html("<tr><td><img src='vidsync.png' height='40px' width='165px'></td>" +
     "<td><input id='vid' type='text' placeholder='Choose a video (Youtube or MP4)'></input></td>" +
     "<td><button id='choose'>Load</button><button id='upload'>Upload</button>" + 
-    "<button id='invite2'>Invite<BR>Friends</button></td></tr></tr>");
+    "<button id='invite2' style='float:right'>Invite<BR>Friends</button></td></tr></tr>");
   $("#choose").click(function(){
     var vid = $("#vid")[0].value + "#";
     if (vid.indexOf("youtube.com")>-1){
