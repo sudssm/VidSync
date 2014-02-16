@@ -27,17 +27,16 @@ width: 100%;
 /*position: absolute;*/
 }
   #room{
+  opacity:0.8;
+  filter:alpha(opacity:80);
   }
   div#inputs{
   width: 60%;
   height: 50px;
   margin: 0 auto;
-  padding: 15px 1%;
+  padding: 0 1%;
   position: relative;
-  opacity:0.8;
-  filter:alpha(opacity:80);
-  width: 60%;
-  padding: 5px;
+  padding: 2px;
   background-color: #000000;
   border-width: 2px;
   border-color: #8A1565;
@@ -48,7 +47,6 @@ width: 100%;
   text-align: justify;
   color: #FF0000;
   vertical-align: middle;
-
   }
 
 
