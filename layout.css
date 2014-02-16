@@ -117,7 +117,7 @@ vertical-align: middle;
   background-color: #8C0A0A;
 
   }
-  #message{
+  #nickname, #message{
   width: 90%;
   margin: 0 auto;
   padding: 10px;
