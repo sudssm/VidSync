@@ -184,6 +184,16 @@ border-radius: 20px; /*rounded edges*/
 
 #chat ul {
   list-style-type: none;
-  text-align: left
+  text-align: left;
   font-size: .3em;
+}
+.name {
+  padding-right: 5px;
+}
+.time {
+  padding-right: 5px;
+  font-size: .2em
+}
+.me .name{
+  color: green;
 }
