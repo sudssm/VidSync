@@ -138,7 +138,9 @@ function showWelcomeMessage () {
       function(InkBlobs){
         console.log(InkBlobs);
         var key = InkBlobs[0].key;
-        dataRef.update({type: "mp4", video: res.url});
+        var url = "http://s3-us-west-2.amazonaws.com/vidsync/" + key;
+        dataRef.update({type: "mp4", video: url});
+        $("#cover").hide();
       });
     coverUp();
   });
@@ -338,6 +340,6 @@ function coverUp() {
   var iframe = $("#filepicker_dialog")
   var x = iframe.offset().left;
   var y = iframe.offset().top;
-  var cover = $("<div style=\"z-index: 99999999999999; position:absolute;background:white; width:200px; height:75px;top:"+y+";left:"+x+"\"</div>").appendTo("body")
+  var cover = $("<div id='cover' style=\"z-index: 99999999999999; position:absolute;background:white; width:200px; height:75px;top:"+y+";left:"+x+"\"</div>").appendTo("body")
 
 }
