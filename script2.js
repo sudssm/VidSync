@@ -14,6 +14,7 @@ function runWebcam(){
     var apiKey = 44651662;
     var sessionId = tokboxSession;
     var token = tokboxToken;
+    console.log(tokboxToken);
     TB.addEventListener("exception", exceptionHandler);
     var session = TB.initSession(sessionId);
 
