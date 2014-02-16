@@ -1,4 +1,5 @@
 var dataRef = new Firebase("https://sudarshan.firebaseio.com/");
+var chatRef = null;
 var id = Math.random().toString(16).slice(2)
 var ytplayer = null;
 var mp4player = null;
@@ -26,16 +27,26 @@ function makeRoom (name) {
         playing: false, 
         sessionId: res.sessionId, 
         token: res.token,
-        owner: id
+        owner: id,
+        chat = [];
       }
     );
-    });
+    chatRef = dataRef.child("chat");
+    chatRef.on('value', newChat)
+  });
 }
 
 function joinRoom (name) {
   dataRef = dataRef.root();
   dataRef = dataRef.child(name);
   dataRef.on('value', incoming);
+  chatRef = dataRef.child("chat");
+  chatRef.on('value', newChat)
+}
+
+function chatRef (fb) {
+  var data = fb.val();
+  console.log(data);
 }
 
 function incoming (fb) {
@@ -110,10 +121,10 @@ function makeMp4Player(data) {
   mp4player = jwplayer();
   mp4player.onReady(function() {
     console.log('setup');
+
     mp4player.onSeek(mp4SeekListener);
     mp4player.onPlay(function() {mp4PlayPauseListener(true)});
     mp4player.onPause(function() {mp4PlayPauseListener(false)});
-
 
     handleMp4Inc(data);
 
@@ -198,7 +209,7 @@ function handleMp4Inc(data) {
   setTimeout(function(){
     disableUntil = false;
     console.log("TIME UP!")
-  }, 100)
+  }, 50)
   mp4player.seek(data.seek);
   mp4player.play(data.playing);
 
