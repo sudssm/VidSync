@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Tangerine');
 @import url('https://fonts.googleapis.com/css?family=Happy%20Monkey');
 @import url('https://fonts.googleapis.com/css?family=Averia%20Serif%20Libre');
-@import url('https://fonts.googleapis.com/css?family=The%20Girl%20Next%20Door');
+@import url('https://fonts.googleapis.com/css?family=Lily%20Script%20One');
 
 html{
 height: 100%;
@@ -131,13 +131,15 @@ border: 0;
 background:transparent;
 padding: 0;
 background: url('http://www.seas.upenn.edu/~maryx/popcorn.png') no-repeat;
-height: 100px;
-width: 100px;
+height: 80px;
+width: 80px;
+font-style: bold;
+font-family: 'Lily Script One', Georgia, Serif; 
 }
 
 p#head{
 font-size:2em;
-font-family: Happy Monkey;
+font-family: 'Happy Monkey';
 margin-bottom:0px;
 margin-top: 0px;
 color: #FFFFFF
