@@ -110,10 +110,10 @@ function makeMp4Player(data) {
   mp4player = jwplayer();
   mp4player.onReady(function() {
     console.log('setup');
-    
     mp4player.onSeek(mp4SeekListener);
     mp4player.onPlay(function() {mp4PlayPauseListener(true)});
     mp4player.onPause(function() {mp4PlayPauseListener(false)});
+
 
     handleMp4Inc(data);
 
@@ -198,7 +198,7 @@ function handleMp4Inc(data) {
   setTimeout(function(){
     disableUntil = false;
     console.log("TIME UP!")
-  }, 50)
+  }, 100)
   mp4player.seek(data.seek);
   mp4player.play(data.playing);
 
