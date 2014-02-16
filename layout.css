@@ -128,10 +128,10 @@ text-decoration:none;
 }
 /*Text*/
 button{
-type: submit;
-style: border:0;
+border: 0;
 background:transparent;
-
+padding: 0;
+background: url('http://www.seas.upenn.edu/~maryx/popcorn.png') no-repeat;
 }
 
 p#head{
