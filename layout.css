@@ -178,7 +178,8 @@ border-radius: 20px; /*rounded edges*/
 #chat {
   margin-top: 10px;
   text-align: left;
-  overflow-y: scroll;
+  overflow-y: auto;
+  display: none
 }
 #chat ul {
   list-style-type: none;
