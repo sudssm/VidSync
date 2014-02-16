@@ -3,7 +3,6 @@
 @import url('https://fonts.googleapis.com/css?family=Averia%20Serif%20Libre');
 @import url('https://fonts.googleapis.com/css?family=The%20Girl%20Next%20Door');
 
-
 html{
 height: 100%;
 padding: 0;
@@ -128,6 +127,13 @@ a.nodec{
 text-decoration:none;
 }
 /*Text*/
+button{
+type: submit;
+style: border:0;
+background:transparent;
+
+}
+
 p#head{
 font-size:2em;
 font-family: Happy Monkey;
