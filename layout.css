@@ -22,7 +22,7 @@ background-image:url('background.png');
 }
 div.horiz{
 float: left;
-height: 15%;
+height: 10%;
 width: 100%;
 }
   #room, #vid{
@@ -50,10 +50,9 @@ width: 100%;
   padding: 2px;
   }
 
-
 div.container{
 clear: none; 
-height: 90%;
+height: 85%;
 width: 100%;
 }
 
