@@ -57,7 +57,7 @@ width: 100%;
 
 }
 
-div.left{
+div.#ytapiplayer{
 /*position: absolute;*/
 float: left;
 width: 80%;
@@ -73,13 +73,10 @@ text-shadow: 0 0 0.15em #000000;
 text-align: center;
 color: #FFFFFF;
 vertical-align: middle;
+margin: 0 auto;
+padding: 0 1%;
+position: relative;
 }
-  div.#ytapiplayer{
-  width: 50%;
-  margin: 0 auto;
-  padding: 0 1%;
-  position: relative;
-  }
 
 div.cams{
 float: right;
