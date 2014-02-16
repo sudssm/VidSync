@@ -110,9 +110,7 @@ function makeMp4Player(data) {
   mp4player = jwplayer();
   mp4player.onReady(function() {
     console.log('setup');
-    instastop = false;
-    mp4player.pause(true);
-
+    
     mp4player.onSeek(mp4SeekListener);
     mp4player.onPlay(function() {mp4PlayPauseListener(true)});
     mp4player.onPause(function() {mp4PlayPauseListener(false)});
