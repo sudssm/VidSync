@@ -122,6 +122,24 @@ function makeMp4Player(data) {
         mp4player.onPause(function() {mp4PlayPauseListener(false)});
 
         handleMp4Inc(data);
+
+        setInterval(function(){
+          dataRef.once('value', function(data){
+            var pres = now();
+            var curr = mp4player.getPosition();
+            data = data.val();
+            if (data.playing)
+              loc = data.seek + pres - data.timestamp;
+            else
+              loc = data.seek;
+            var playing = mp4player.getState() == "PLAYING";
+
+            console.log(curr - loc);
+            if (Math.abs (curr - loc) > 2 || 
+                data.playing != playing)
+              handleMp4Inc(data);
+          })
+        }, 2000);
       }
     })
     mp4player.play(true);
