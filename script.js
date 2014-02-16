@@ -340,6 +340,9 @@ function now () {
 
 $(document).ready (function() {
 
+  if (window.location.hash != "")
+    joinRoom(window.location.hash(substring(1)));
+
   // get facebook api
   $.getScript('//connect.facebook.net/en_UK/all.js', function(){
     FB.init({
