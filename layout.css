@@ -57,9 +57,6 @@ width: 50%;
 
 div.left{
 /*position: absolute;*/
-float: left;
-width: 80%;
-height: 100%;
 display: block;
 /*display:inline-block;*/
 border-width: 5px;
@@ -73,11 +70,13 @@ text-align: center;
 color: #FFFFFF;
 vertical-align: middle;
 }
-  div.youtube, #ytapiplayer, #myytplayer{
-  width: 90%
-  margin: 0 auto;
-  padding-left: 0 1%;
-  }
+div.youtube, #ytapiplayer, #myytplayer{
+float: left;
+width: 80%;
+height: 100%;
+margin: 0 auto;
+padding-left: 0 1%;
+}
 
 div.cams{
 float: right;
