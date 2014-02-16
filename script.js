@@ -39,7 +39,7 @@ function makeRoom (name) {
       }
     );
     chatRef = chatRef.child(name);
-    chatRef.remove();
+    chatRef.set(null);
     chatRef.on('child_added', chatIn);
     first_run = true;
     roomName = name;
