@@ -36,9 +36,9 @@ function runWebcam(sessionId, token){
         for (var i = 0; i < streams.length; i++) {
             var stream = streams[i];
             if (stream.connection.connectionId != session.connection.connectionId) {
-//                var subscriber = session.subscribe(stream, "cam2", {width:200, height:150});
-//                session.publish(publisher);
-		session.subscribe(stream);
+                var subscriber = session.subscribe(stream, "cam2", {width:200, height:150});
+                session.publish(subscriber);
+//		session.subscribe(stream);
             }
         }
     }
