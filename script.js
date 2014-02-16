@@ -1,6 +1,8 @@
 var dataRef = new Firebase("https://sudarshan.firebaseio.com/");
 var chatRef = null;
-var id = Math.random().toString(16).slice(2)
+var id = Math.random().toString(16).slice(2);
+var nickname = null;
+
 var ytplayer = null;
 var mp4player = null;
 
@@ -32,7 +34,7 @@ function makeRoom (name) {
       }
     );
     chatRef = dataRef.child("chat");
-    chatRef.on('value', newChat)
+    chatRef.on('value', chatIn)
   });
 }
 
@@ -41,12 +43,21 @@ function joinRoom (name) {
   dataRef = dataRef.child(name);
   dataRef.on('value', incoming);
   chatRef = dataRef.child("chat");
-  chatRef.on('value', newChat)
+  chatRef.on('value', chatIn)
 }
 
-function chatRef (fb) {
+function chatIn (fb) {
   var data = fb.val();
   console.log(data);
+}
+
+function chatOut (msg) {
+  chatRef.push({
+    id: id,
+    name: (nickname ? nickname : id),
+    message: msg,
+    timestamp: new Date().getTime()
+  })
 }
 
 function incoming (fb) {
