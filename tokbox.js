@@ -2,18 +2,17 @@ function runWebcam(sessionId, token){
     var apiKey = 44651662;
     TB.addEventListener("exception", exceptionHandler);
     var session = TB.initSession(sessionId);
-
+    
     TB.setLogLevel(TB.DEBUG);
     session.addEventListener("sessionConnected", sessionConnectedHandler);
     session.addEventListener("streamCreated", streamCreatedHandler);
     session.connect(apiKey, token);
-
+    
     function sessionConnectedHandler(event) {
-            console.log("connected");
-            subscribeToStreams(event.streams);
-            var publisher = TB.initPublisher(apiKey, "cam0", {width:100, height:75});
-	    session.publish(publisher);
-	}
+        console.log("connected");
+        subscribeToStreams(event.streams);
+        var publisher = TB.initPublisher(apiKey, "cam0", {width:100, height:75});
+	session.publish(publisher);
     }
 
     function streamCreatedHandler(event) {
