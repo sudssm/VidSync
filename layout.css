@@ -108,10 +108,8 @@ vertical-align: middle;
   position: fixed;
   bottom: 10px;
   right: 50px;
-  border: 3px solid;
-  border-width: 5px;
-  border-color: #8C0A0A;  
-  background-color: #8C0A0A;
+
+  overflow: auto;
 }
   }
   div.chat{
@@ -119,6 +117,10 @@ vertical-align: middle;
   overflow: auto;
   margin: 0 auto;
   padding: 1px;
+  border: 3px solid;
+  border-width: 5px;
+  border-color: #8C0A0A;  
+  background-color: #8C0A0A;
   }
   #nickname, #message{
   width: 90%;
