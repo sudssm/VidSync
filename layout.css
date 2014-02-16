@@ -139,8 +139,8 @@ text-decoration:none;
 button{
 border: 0;
 padding: 0;
-background: url('http://www.seas.upenn.edu/~maryx/popcorn.png') no-repeat;
-height: 70px;
+background: url('popcorn.png') no-repeat;
+height: 100%;
 width: 58px;
 font-style: bold;
 font-family: 'Lily Script One', Georgia, Serif; 
