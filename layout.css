@@ -159,6 +159,7 @@ border: 0;
 padding: 0;
 background: url('vidsync.png') no-repeat;
 height: 100%;
+width: 20%;
 }
 p{
 font-size: 12px;
