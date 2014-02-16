@@ -33,7 +33,7 @@ function makeRoom (name) {
         chat: []
       }
     );
-    chatRef = dataRef.child(name);
+    chatRef = chatRef.child(name);
     chatRef.on('value', chatIn)
   });
 }
@@ -42,7 +42,7 @@ function joinRoom (name) {
   dataRef = dataRef.root();
   dataRef = dataRef.child(name);
   dataRef.on('value', incoming);
-  chatRef = dataRef.child(name);
+  chatRef = chatRef.child(name);
   chatRef.on('value', chatIn)
 }
 
