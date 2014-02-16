@@ -141,7 +141,7 @@ a.nodec{
 text-decoration:none;
 }
 /*Text*/
-button#create, #join, #load, #upload{
+#create, #join, #load, #upload{
 border: 0;
 padding: 0;
 background: url('popcorn.png') no-repeat;
@@ -153,11 +153,12 @@ font-size: 1em;
 text-shadow: 0 0 0.2em #FFF, 0 0 0.2em #FFF,
         0 0 0.2em #FFF
 }
-button#logo{
+
+#logo{
 border: 0;
 padding: 0;
 background: url('vidsync.png') no-repeat;
-height: 70px;
+height: 100%;
 }
 p{
 font-size: 12px;
