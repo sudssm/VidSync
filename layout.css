@@ -41,7 +41,7 @@ width: 100%;
   }
 
   #room, #vid{
-  width:50%;
+  width:40%;
   opacity:0.8;
   filter:alpha(opacity:80);
   background-color: #000000;
