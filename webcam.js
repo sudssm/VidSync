@@ -3,10 +3,8 @@ function runWebcam(sessionId, token){
     TB.addEventListener("exception", exceptionHandler);
     var session = TB.initSession(sessionId);
 
-    var publisher = TB.initPublisher(apiKey,
-                                 "myPublisher",
-                                 {width:200, height:150})
-    //session.publish(publisher);
+
+    
     TB.setLogLevel(TB.DEBUG);
     session.addEventListener("sessionConnected", sessionConnectedHandler);
     session.addEventListener("streamCreated", streamCreatedHandler);
@@ -15,7 +13,10 @@ function runWebcam(sessionId, token){
     function sessionConnectedHandler(event) {
         console.log("connected");
         subscribeToStreams(event.streams);
-        session.publish();
+        var publisher = TB.initPublisher(apiKey,
+                                 "myPublisher",
+                                 {width:400, height:300})
+        session.publish(publisher);
     }
 
     function streamCreatedHandler(event) {
