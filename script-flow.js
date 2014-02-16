@@ -1,5 +1,4 @@
 var dataRef = new Firebase("https://sudarshan.firebaseio.com/");
-var id = Math.random().toString(16).slice(2)
 var ytplayer = null;
 var mp4player = null;
 
@@ -15,22 +14,21 @@ var last_in = null;
 
 function makeRoom (name) {
   $.getJSON("http://www.smuralidhar.com/pennapps2014s/generate.php", function(res){
-      dataRef = dataRef.root();
-      dataRef = dataRef.child(name);
-      dataRef.on('value', incoming);
-      dataRef.update(
-      {   
-        type: null, 
-        video: null, 
-        seek: 0, 
-        timestamp: now(), 
-        playing: false, 
-        sessionId: res.sessionId, 
-        token: res.token,
-        owner: id
-      }
-    );
-    });
+    dataRef = dataRef.root();
+    dataRef = dataRef.child(name);
+    dataRef.on('value', incoming);
+    dataRef.update(
+    {   
+      type: null, 
+      video: null, 
+      seek: 0, 
+      timestamp: now(), 
+      playing: false, 
+      sessionId: res.sessionId, 
+      token: res.token 
+    }
+  );
+  });
 }
 
 function joinRoom (name) {
@@ -66,7 +64,7 @@ function incoming (fb) {
   }
   else if (data.type == "mp4"){
     if (mp4player == null)
-      makeMp4Player(data);
+      makeMp4Player(data.video);
     else
       handleMp4Inc(data);
   }
@@ -76,7 +74,7 @@ function outgoing (playing, seek) {
   console.log("out");
   console.log({playing:playing, seek:seek});
   dataRef.update(
-    {playing: playing, seek: seek, timestamp: now(), owner: id}
+    {playing: playing, seek: seek, timestamp: now()}
   );
 }
 
@@ -106,28 +104,30 @@ function makeYtPlayer(vid) {
   swfobject.embedSWF("http://www.youtube.com/v/" + vid + "?version=3&controls=1&enablejsapi=1&playerapiid=ytplayer&allowfullscreen=1", 
     "ytapiplayer", "100%", "100%", "8", null, null, params, atts);           
 }
-function makeMp4Player(data) {
-  disableUntil = false;
-  jwplayer("ytapiplayer").setup({file: data.video, width: "100%", height: "100%"});
-  mp4player = jwplayer();
-  mp4player.onReady(function() {
-    var instastop = true;
-    mp4player.onPlay(function(){
-      if (instastop){
-        console.log('setup');
-        instastop = false;
-        mp4player.pause(true);
-
-        mp4player.onSeek(mp4SeekListener);
-        mp4player.onPlay(function() {mp4PlayPauseListener(true)});
-        mp4player.onPause(function() {mp4PlayPauseListener(false)});
-
-        handleMp4Inc(data);
-      }
-    })
-    mp4player.play(true);
-  })
+function makeMp4Player(vid) {
+  disableUntil = null;
+  $("#ytapiplayer").html("");
+  $("#ytapiplayer").flowplayer({
+    // one video: a one-member playlist
+      playlist: [
+         [
+            { mp4: vid },
+         ]
+      ],
+      ratio: 3/4  // video with 4:3 aspect ratio
+   });
 }
+
+
+flowplayer(function (mp4player, root) {
+  mp4player.bind("ready", function(e, mp4player) {
+    window.mp4player = mp4player;
+    mp4player.bind("seek", mp4SeekListener);
+    mp4player.bind("resume", function(e, mp4player) {mp4PlayPauseListener(true)});
+    mp4player.bind("pause", function(e, mp4player) {mp4PlayPauseListener(false)});
+    handleMp4Inc(last_in);
+  });
+});
 
 function onYouTubePlayerReady(playerId) {
   ytplayer = $("#myytplayer")[0];
@@ -173,24 +173,16 @@ function handleYtInc(data) {
 }
 
 function handleMp4Inc(data) {
-  if(data.owner == id){
-    console.log("ignoring own")
-    return;
-  }
+  console.log("hand")
   if (data.playing)
     data.seek += now() - data.timestamp;
 
-  // ignore 2 events (assume it take under .05 seconds)
-  disableUntil = true;
-  console.log("disabling handlers");
-  setTimeout(function(){
-    disableUntil = false;
-    console.log("TIME UP!")
-  }, 50)
   mp4player.seek(data.seek);
-  mp4player.play(data.playing);
-
-  console.log('done handle');
+  if (data.playing)
+    mp4player.resume();
+  else
+    mp4player.pause();
+  disableUntil = false;
 }
 
 function ytListener (value){
@@ -233,22 +225,28 @@ function ytListener (value){
 
 function mp4PlayPauseListener (play){
   if (disableUntil){
-    console.log("ignoring " + play);
+    //if (disableUntil == play)
+    //  disableUntil = null;
+    //console.log("ignoring " + play);
     return;
   }
 
   console.log(play);
+  disableUntil = true;
 
-  //mp4player.pause(play);
-  outgoing (play, mp4player.getPosition());
+  mp4player.toggle();
+
+  disableUntil = false;
+
+  outgoing (play, mp4player.video.time);
 }
 function mp4SeekListener () {
-  if (disableUntil){
-    console.log("ignoring seek");
+  if (disableUntil)
     return;
-  }
-  console.log("seek");
-  outgoing (mp4player.getState() == "PLAYING", mp4player.getPosition());
+  console.log("seeking");
+  var goal = mp4player.playing;
+  disableUntil = goal
+  outgoing (goal, mp4player.video.time);
 }
 
 function now () {
