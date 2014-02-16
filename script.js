@@ -1,7 +1,6 @@
 var dataRef = new Firebase("https://sudarshan.firebaseio.com/");
 var chatRef = new Firebase("https://sudarshan.firebaseio.com/**chats**");
 var id = Math.random().toString(16).slice(2);
-var nickname = null;
 
 var ytplayer = null;
 var mp4player = null;
@@ -60,6 +59,7 @@ function chatIn (fb) {
 }
 
 function chatOut (msg) {
+  var nickname = $("#nickname")[0].value;
   chatRef.push({
     id: id,
     name: (nickname ? nickname : id),
