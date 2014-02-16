@@ -25,7 +25,7 @@ function runWebcam(sessionId, token){
             var stream = streams[i];
             if (stream.connection.connectionId != session.connection.connectionId) {
 //		$("#cams").append('<div id=\''+rand+'\'</div>');
-		document.getElementById('#cam2').innerHTML = session.subscribe(stream, 'cam2', {width:200, height:150});
+		session.subscribe(stream, 'cam2', {width:200, height:150});
 //		session.publish(subscriber);
 //		session.subscribe(stream);
             }
