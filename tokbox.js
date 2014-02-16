@@ -1,4 +1,3 @@
-
 function runWebcam(sessionId, token){
     var apiKey = 44651662;
     TB.addEventListener("exception", exceptionHandler);
