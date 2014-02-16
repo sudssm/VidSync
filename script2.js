@@ -91,11 +91,11 @@ function makeYtPlayer(vid) {
   var params = { allowScriptAccess: "always" };
   var atts = { id: "myytplayer" };
   swfobject.embedSWF("http://www.youtube.com/v/" + vid + "?version=3&controls=1&enablejsapi=1&playerapiid=ytplayer&allowfullscreen=1", 
-    "ytapiplayer", "80%", "80%", "8", null, null, params, atts);           
+    "ytapiplayer", "100%", "100%", "8", null, null, params, atts);           
 }
 function makeMp4Player(data) {
   disableUntil = null;
-  jwplayer("ytapiplayer").setup({file: data.video, width: "100%", height: "100%"});
+  jwplayer("ytapiplayer").setup({file: data.video, width: "80%", height: "80%"});
   mp4player = jwplayer();
   mp4player.onReady(function() {
     var instastop = true;
