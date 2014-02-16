@@ -130,6 +130,13 @@ function showWelcomeMessage () {
     else
       alert ("Link not recognized");
   });
+  $("#upload").click(function(){
+    filepicker.pick(
+      {extension: '.mp4'},
+      function(res){
+        dataRef.update({type: "mp4", video: res.url});
+      });
+  });
 }
 
 function makeYtPlayer(vid) {
@@ -310,13 +317,6 @@ $(document).ready (function() {
   });
   $("#join").click(function() {
     joinRoom($("#room")[0].value)
-  });
-
-  $("#upload").click(function(){
-    filepicker.pick(
-      function(res){
-        dataRef.update({type: "mp4", video: res.url});
-      });
   });
 
   $("#message").keyup(function(e){
