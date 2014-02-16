@@ -182,6 +182,7 @@ margin: 7px;
 border-radius: 20px; /*rounded edges*/
 }
 
+
 #chat ul {
   list-style-type: none;
   text-align: left;
@@ -192,8 +193,7 @@ border-radius: 20px; /*rounded edges*/
 }
 .time {
   padding-right: 5px;
-  font-size: .2em
 }
-.me .name{
+.self .name{
   color: green;
 }
