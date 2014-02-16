@@ -4,17 +4,29 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
     <script src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js" ></script>
     <script src="http://jwpsrv.com/library/MeI7GJZAEeOmgCIACi0I_Q.js"></script>
-    <link rel="stylesheet" href="//releases.flowplayer.org/5.4.6/skin/minimalist.css">
-    <script src="//releases.flowplayer.org/5.4.6/flowplayer.min.js"></script>
     <script src="https://swww.tokbox.com/webrtc/v2.0/js/TB.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+    <link rel="stylesheet" type="text/css" href="layout.css">
 
     <script src = "script.js"></script>
-    <script src = "webcam.js"></script>
   </head>
   <body>
-    <div id="ytapiplayer">
-      Room Code <input id="room" type="text"></input>
-      <button id="create">Create</button><button id="join">Join</button>
-   </div>
+    <div class='horiz' id='head'>
+      <div id='inputs'>
+	Room Name: <input id='room' type="text" placeholder='join or create room'></input>
+	<button id="create">Create</button>
+	<button id="join">Join</button>
+      </div>
+    </div>
+    
+    <div class='container' id='container'>
+      <object id='ytapiplayer'></object> <!--left-->
+      <div class='cams'> <!--right-->
+        <div class='cam' id='cam1'></div>
+        <div class='cam' id='cam2'></div>
+	<div class='chat'>
+	  <p> chat chat </p>
+	</div>
+      </div>
   </body>
 </html>
