@@ -138,7 +138,7 @@ function makeYtPlayer(vid) {
   var atts = { id: "myytplayer" };
   swfobject.embedSWF("http://www.youtube.com/v/" + vid + "?version=3&controls=1&enablejsapi=1&playerapiid=ytplayer&allowfullscreen=1", 
     "ytapiplayer", "100%", "100%", "8", null, null, params, atts);           
-  runWebcam(sessionId, token);
+  runWebcam(tokboxSession, tokboxToken);
 }
 function makeMp4Player(data) {
   disableUntil = null;
