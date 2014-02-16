@@ -11,7 +11,7 @@ function runWebcam(sessionId, token){
     function sessionConnectedHandler(event) {
         console.log("connected");
         subscribeToStreams(event.streams);
-        var publisher = TB.initPublisher(apiKey, "cam1", {width:100, height:75});
+        var publisher = TB.initPublisher(apiKey, "cam0", {width:100, height:75});
   session.publish(publisher);
     }
 
@@ -25,7 +25,7 @@ function runWebcam(sessionId, token){
             var stream = streams[i];
             if (stream.connection.connectionId != session.connection.connectionId) {
 //		$("#cams").append('<div id=\''+rand+'\'</div>');
-		session.subscribe(stream, 'cam2', {width:200, height:150});
+		session.subscribe(stream, 'cam1', {width:200, height:150});
 //		session.publish(subscriber);
 //		session.subscribe(stream);
             }
