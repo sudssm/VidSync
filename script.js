@@ -247,7 +247,8 @@ function mp4SeekListener () {
     return;
   }
   console.log("seek");
-  outgoing (mp4player.getState() == "PLAYING", mp4player.getPosition());
+  mp4player.pause();
+  outgoing (false, mp4player.getPosition());
 }
 
 function now () {
