@@ -15,7 +15,7 @@ function runWebcam(sessionId, token){
         subscribeToStreams(event.streams);
         var publisher = TB.initPublisher(apiKey,
                                  "myPublisher",
-                                 {width:400, height:300})
+                                 {width:200, height:150})
         session.publish(publisher);
     }
 
