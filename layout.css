@@ -149,7 +149,7 @@ text-decoration:none;
 }
 /*Text*/
 
-#create, #join, #choose, #upload{
+#create, #join, #choose, #upload, #invite{
 cursor: pointer;
 border: 0;
 padding: 0;
@@ -228,6 +228,7 @@ button {
 }
 #invite{
 position: fixed;
-bottom: 0;
+top: 0;
 right: 0;
+font-size: 10px;
 }
