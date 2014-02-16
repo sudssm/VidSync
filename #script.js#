@@ -1,4 +1,4 @@
-var dataRef = new Firebase("https://sudarshan.firebaseio.com/");
+B77;10102;0cvar dataRef = new Firebase("https://sudarshan.firebaseio.com/");
 var chatRef = new Firebase("https://sudarshan.firebaseio.com/**chats**");
 var id = Math.random().toString(16).slice(2);
 var nickname = null;
@@ -108,7 +108,7 @@ function outgoing (playing, seek) {
 }
 
 function showWelcomeMessage () {
-  $("#inputs").html("<tr><td><img src='vidsync.png' width='40px' height='165px'></td>" +
+  $("#inputs").html("<tr><td><img src='vidsync.png' height='100%'></td>" +
     "<td><input id='vid' type='text' placeholder='Choose a video'></input></td>" +
     "<td><button id='choose'>Load</button><button id='upload'>Upload</button></td></tr>");
   $("#choose").click(function(){
