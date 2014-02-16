@@ -86,7 +86,7 @@ function incoming (fb) {
     alert("room does not exist");
   }
 
-  if (first_run{
+  if (first_run){
     tokboxSession = data.sessionId;
     tokboxToken = data.token;
     showWelcomeMessage();
