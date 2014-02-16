@@ -48,8 +48,13 @@ function joinRoom (name) {
 
 function chatIn (fb) {
   var data = fb.val();
-
-  console.log(data);
+  var me = data.id == id ? " class='self'" : "";
+  var html = "<li" + me + ">" +
+                "<span class='name'>" + data.name + "</span>" + 
+                "<span class='time'>" + new Date(data.timestamp).toLocaleTimeString() + "</span>" + 
+                "<span class='msg'>" + data.message + "</span>" + 
+            "</li>";
+  $("#chat ul").append(html);
 }
 
 function chatOut (msg) {
