@@ -10,6 +10,8 @@ var disableUntil;
 
 var last_in = null;
 
+var cams = 0;
+
 function runWebcam(sessionId, token){
     var apiKey = 44651662;
     TB.addEventListener("exception", exceptionHandler);
@@ -36,9 +38,9 @@ function runWebcam(sessionId, token){
         for (var i = 0; i < streams.length; i++) {
             var stream = streams[i];
             if (stream.connection.connectionId != session.connection.connectionId) {
-                var subscriber = session.subscribe(stream, "cam2", {width:200, height:150});
+		$("#cams").append('<div id=\''+'cam'+cams+'\'</div>');
+                var subscriber = session.subscribe(stream, '\'cam'+cams+'\'', {width:200, height:150});
                 session.publish(subscriber);
-//		session.subscribe(stream);
             }
         }
     }
