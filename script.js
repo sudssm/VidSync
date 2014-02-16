@@ -134,7 +134,8 @@ function outgoing (playing, seek) {
 function showWelcomeMessage () {
   $("#inputs").html("<tr><td><img src='vidsync.png' height='40px' width='165px'></td>" +
     "<td><input id='vid' type='text' placeholder='Choose a video (Youtube or MP4)'></input></td>" +
-    "<td><button id='choose'>Load</button><button id='upload'>Upload</button></td></tr>");
+    "<td><button id='choose'>Load</button><button id='upload'>Upload</button></td>" + 
+    "<button id='invite'>Invite<BR>Friends</button></td></tr></tr>");
   $("#choose").click(function(){
     var vid = $("#vid")[0].value + "#";
     if (vid.indexOf("youtube.com")>-1){
@@ -163,6 +164,15 @@ function showWelcomeMessage () {
         $(".cover").hide();
       });
     coverUp();
+  });
+  $("#invite").click(function(){
+    url = "http://www.smuralidhar.com/vidsync";
+    if (roomName != null)
+      url += "#" + roomName;
+    FB.ui({
+      method: 'send',
+      link: url,
+    });
   });
 }
 
