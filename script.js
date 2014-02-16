@@ -78,7 +78,6 @@ function chatOut (msg) {
 
 function incoming (fb) {
   var data = fb.val();
-  last_in = data;
   console.log("inc");
   console.log(data);
 
@@ -90,6 +89,8 @@ function incoming (fb) {
     ytplayer = null;
     mp4player = null;
   }
+
+  last_in = data;
 
   if (first_run){
     tokboxSession = data.sessionId;
