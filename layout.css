@@ -127,8 +127,13 @@ text-decoration:none;
 }
 /*Text*/
 button{
-/*background: url('http://www.seas.upenn.edu/~maryx/popcorn.png') no-repeat;*/
-
+border: 0;
+padding: 0;
+background: url('http://www.seas.upenn.edu/~maryx/popcorn.png') no-repeat;
+height: 90px;
+width: 80px;
+font-style: bold;
+font-family: 'Lily Script One', Georgia, Serif; 
 }
 
 p#head{
