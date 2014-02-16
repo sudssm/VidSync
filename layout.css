@@ -120,7 +120,8 @@ vertical-align: middle;
   position: fixed;
   bottom: 0;
   right: 20px;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   }
   #nickname, #message{
   width: 90%;
@@ -200,6 +201,7 @@ color: #FFFFFF;
 #chat ul li {
   font-size: 10px;
   padding-bottom: 1px;
+  width: 200px;
 }
 .name {
   padding-right: 1px;
