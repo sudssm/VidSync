@@ -55,6 +55,12 @@ height: 93%;
 width: 100%;
 }
 
+div.left{
+float: left;
+width: 50%;
+height: 100%;
+}
+
 #ytapiplayer{
 float: left;
 width: 50%;
