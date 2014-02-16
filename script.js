@@ -68,6 +68,14 @@ function chatOut (msg) {
   })
 }
 
+$("#message").keyup(function(event){
+  e.preventDefault();
+  var key = window.event ? e.keyCode : e.which;
+  if (key == '13') {
+      chatOut($("#message")[0].value)
+  }
+})
+
 function incoming (fb) {
   var data = fb.val();
   last_in = data;
