@@ -140,7 +140,7 @@ button{
 border: 0;
 padding: 0;
 background: url('popcorn.png') no-repeat;
-height: 100%;
+height: 70px;
 width: 58px;
 font-style: bold;
 font-family: 'Lily Script One', Georgia, Serif; 
@@ -156,7 +156,7 @@ margin-top: 0px;
 color: #FFFFFF
 }
 p,li{
-padding: 2px;
+padding: 2%;
 text-align: justify;
 font-size: 2em;
 font-family: 'Happy Monkey', Arial, Serif;
