@@ -93,6 +93,7 @@ function incoming (fb) {
     $("#chat").prepend("<h1>"+roomName+"</h1>");
     $("#chat").show();
     runWebcam(tokboxSession, tokboxToken);
+    first_run = false;
   }
 
   if (data.type == "YT") {
@@ -145,7 +146,7 @@ function showWelcomeMessage () {
         dataRef.update({type: "mp4", video: url});
         $("#cover").hide();
       },
-      function(){
+      function(FEError){
         $("#cover").hide();
       });
     coverUp();
