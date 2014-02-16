@@ -151,7 +151,7 @@ text-decoration:none;
 /*Text*/
 
 #create, #join, #choose, #upload{
-inline-cursor: pointer;
+cursor: pointer;
 border: 0;
 padding: 0;
 background: url('popcorn.png') no-repeat;
