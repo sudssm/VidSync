@@ -111,6 +111,9 @@ vertical-align: middle;
   border-width: 5px;
   border-color: #8C0A0A;  
   background-color: #8C0A0A;
+  position: fixed;
+  bottom: 10px;
+  right: 50px;
   }
   #chatbox{  
   height: 200px;
