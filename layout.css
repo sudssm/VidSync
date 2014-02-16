@@ -210,3 +210,6 @@ cursor:pointer;
 .self .name{
   color: green;
 }
+button {
+  pointer: cursor;
+}
