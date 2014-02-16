@@ -10,10 +10,9 @@ function runWebcam(sessionId, token){
 
     function sessionConnectedHandler(event) {
             console.log("connected");
+            subscribeToStreams(event.streams);
             var publisher = TB.initPublisher(apiKey, "cam0", {width:100, height:75});
 	    session.publish(publisher);
-        while (true){
-            subscribeToStreams(event.streams);
 	}
     }
 
@@ -28,7 +27,7 @@ function runWebcam(sessionId, token){
             if (stream.connection.connectionId != session.connection.connectionId) {
 		$("#cams").append('<div id=\''+i+'\'</div>');
 		session.subscribe(stream, '\''+i+'\'', {width:200, height:150});
-//		session.publish(subscriber);
+//		session.publish(publisher);
 //		session.subscribe(stream);
             }
         }
