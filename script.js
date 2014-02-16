@@ -339,6 +339,17 @@ function now () {
 }
 
 $(document).ready (function() {
+
+  // get facebook api
+  $.getScript('//connect.facebook.net/en_UK/all.js', function(){
+    FB.init({
+      appId: '1534846250073976',
+    });     
+    $('#loginbutton,#feedbutton').removeAttr('disabled');
+    FB.getLoginStatus(updateStatusCallback);
+  });
+
+
   $("#create").click(function() {
     makeRoom($("#room")[0].value)
   });
