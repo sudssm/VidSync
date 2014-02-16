@@ -1,5 +1,5 @@
 var dataRef = new Firebase("https://sudarshan.firebaseio.com/");
-var chatRef = null;
+var chatRef = new Firebase("https://sudarshan.firebaseio.com/chats");
 var id = Math.random().toString(16).slice(2);
 var nickname = null;
 
@@ -33,7 +33,7 @@ function makeRoom (name) {
         chat: []
       }
     );
-    chatRef = dataRef.child("chat");
+    chatRef = dataRef.child(name);
     chatRef.on('value', chatIn)
   });
 }
@@ -42,7 +42,7 @@ function joinRoom (name) {
   dataRef = dataRef.root();
   dataRef = dataRef.child(name);
   dataRef.on('value', incoming);
-  chatRef = dataRef.child("chat");
+  chatRef = dataRef.child(name);
   chatRef.on('value', chatIn)
 }
 
