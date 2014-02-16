@@ -147,13 +147,6 @@ text-shadow: 0 0 0.2em #FFF, 0 0 0.2em #FFF,
         0 0 0.2em #FFF
 }
 
-/*#logo{
-border: 0;
-padding: 0;
-background: url('vidsync.png') no-repeat;
-height: 40px;
-width: 165px;
-}*/
 p{
 font-size: 12px;
 font-family: Arial, serif;
@@ -197,14 +190,14 @@ border-radius: 20px; /*rounded edges*/
 }
 .name {
   padding-right: 1px;
-  font-size: 15px;
+  font-size: 12px;
 }
 .time {
   padding-right: 1px;
   font-size: 10px;
 }
 .msg {
-  font-size: 18px;
+  font-size: 12px;
 }
 .self .name{
   color: green;
