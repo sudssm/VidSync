@@ -48,7 +48,7 @@ function runWebcam(sessionId, token){
             if (stream.connection != session.connection) {
 		event.preventDefault();
 		var subscribers = session.getSubscribersForStream();
-		#("#cams").append("<div id='cam1'></div>");
+		$("#cams").append("<div id='cam1'></div>");
             }
 	}
     }
