@@ -26,9 +26,10 @@ function runWebcam(sessionId, token){
             if (stream.connection.connectionId != session.connection.connectionId) {
 		var random = Math.random().toString(36).substring(7);
 		console.log(random);
-		$("#cams").append('<div id=\''+rand+'\'</div>');
-		var subscriber = session.subscribe(stream, '\''+random+'\'', {width:200, height:150});
-		session.publish(subscriber);
+//		$("#cams").append('<div id=\''+rand+'\'</div>');
+//		var subscriber = session.subscribe(stream, '\''+random+'\'', {width:200, height:150});
+//		session.publish(subscriber);
+		session.subscribe(stream);
             }
         }
     }
