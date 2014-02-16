@@ -37,6 +37,7 @@ width: 100%;
   background-color: #FFFFFF:
   opacity: 0.4;
   filter:alpha(opacity:80);
+  vertical-align: top; /*img and input on same line*/
   }
 
   #room, #vid{
