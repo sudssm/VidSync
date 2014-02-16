@@ -21,9 +21,9 @@ var creating;
 
 
 function makeRoom (name) {
+  dataRef = dataRef.root();
   creating = true;
   $.getJSON("http://www.smuralidhar.com/pennapps2014s/generate.php", function(res){
-      dataRef = dataRef.root();
       dataRef = dataRef.child(name);
       dataRef.on('value', incoming);
       dataRef.update(
