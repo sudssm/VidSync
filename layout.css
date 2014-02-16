@@ -228,7 +228,7 @@ button {
 }
 #invite{
 position: fixed;
-top: 10px;
+bottom: 10px;
 right: 10px;
 font-size: 11px;
 }
