@@ -130,8 +130,9 @@ function showWelcomeMessage () {
       alert ("Link not recognized");
   });
   $("#upload").click(function(){
-    filepicker.pick(
+    filepicker.pickAndStore(
       {extension: '.mp4'},
+      {location: 'S3'},
       function(res){
         dataRef.update({type: "mp4", video: res.url});
       });
