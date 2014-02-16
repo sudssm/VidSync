@@ -190,16 +190,19 @@ border-radius: 20px; /*rounded edges*/
   list-style-type: none;
   text-align: left;
 }
+#chat ul li {
+  font-size: 10px;
+}
 .name {
   padding-right: 1px;
-  font-size: .2em
+  font-size: 15px;
 }
 .time {
   padding-right: 1px;
-  font-size: .15em;
+  font-size: 10px;
 }
 .msg {
-  font-size: .22em;
+  font-size: 18px;
 }
 .self .name{
   color: green;
