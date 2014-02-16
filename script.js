@@ -91,7 +91,8 @@ function outgoing (playing, seek) {
 }
 
 function showWelcomeMessage () {
-  $("#inputs").html("<input id='vid' type='text' placeholder='Choose a video'></input>" +
+  $("#inputs").html("<img src='vidsync.png' height='100%'>" +
+<input id='vid' type='text' placeholder='Choose a video'></input>" +
     "<button id='choose'>Load</button><button id='upload'>Upload</button>");
   $("#choose").click(function(){
     var vid = $("#vid")[0].value + "#";
