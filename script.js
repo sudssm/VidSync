@@ -1,5 +1,5 @@
 var dataRef = new Firebase("https://sudarshan.firebaseio.com/");
-var chatRef = new Firebase("https://sudarshan.firebaseio.com/chats");
+var chatRef = new Firebase("https://sudarshan.firebaseio.com/**chats**");
 var id = Math.random().toString(16).slice(2);
 var nickname = null;
 
