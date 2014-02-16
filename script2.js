@@ -7,7 +7,6 @@ var tokboxSession = null;
 var tokboxToken = null;
 
 var disableUntil;
-var enablehack = false;
 
 var last_in = null;
 
@@ -43,12 +42,10 @@ function incoming (fb) {
     roomName = name;
     tokboxSession = data.sessionId;
     tokboxToken = data.token;
-  }
-
-  if (data.type == null){
     showWelcomeMessage();
   }
-  else if (data.type == "YT") {
+
+  if (data.type == "YT") {
     if (ytplayer == null)
       makeYtPlayer(data.video);
     else 
@@ -71,8 +68,8 @@ function outgoing (playing, seek) {
 }
 
 function showWelcomeMessage () {
-  $("#ytapiplayer").html("Welcome Choose a video: "+
-    "<input id='vid' type='text'></input>" +
+  $("#inputs").html("Choose a video: "+
+    "<input id='vid' type='text' placeholder='Choose a video'></input>" +
     "<button id='choose'>Load</button>");
   $("#choose").click(function(){
     var vid = $("#vid")[0].value + "#";
@@ -168,16 +165,19 @@ function handleMp4Inc(data) {
   if (data.playing)
     data.seek += now() - data.timestamp;
 
-  mp4player.seek(data.seek);
+  //mp4player.seek(data.seek);
 
   mp4player.play(data.playing);
 
-  setTimeout(function(){
-    if (!data.playing && mp4player.getState()=="PLAYING"){
-      console.log("hacking");
-      mp4player.play(false);
+  setTimeout(hack, 100);
+
+  function hack (){
+    console.log("hacking");
+    if (disableUntil == data.playing){
+      mp4player.play(data.playing);
+      setTimeout(hack, 100);
     }
-  }, 10);
+  }
 
   console.log('done handle');
 }
@@ -233,11 +233,6 @@ function mp4PlayPauseListener (play){
 
   mp4player.pause(play);
   outgoing (play, mp4player.getPosition());
-}
-function mp4SeekListener () {
-  var goal = mp4player.getState() == "PLAYING";
-  disableUntil = goal
-  outgoing (goal, mp4player.getPosition());
 }
 
 function now () {

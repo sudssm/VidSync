@@ -17,6 +17,7 @@ height: 100%;
 width: 100%;
 padding: 0;
 margin: 0;
+background-image:url('background.png');
 
 /*background-color: #FFE8F6;*/
 }
@@ -26,7 +27,7 @@ height: 10%;
 width: 100%;
 /*position: absolute;*/
 }
-  div#ytapiplayer{
+  div#inputs{
   width: 60%;
   height: 50px;
   margin: 0 auto;
@@ -34,48 +35,6 @@ width: 100%;
   position: relative;
   opacity:0.8;
   filter:alpha(opacity:80);
-  }
-
-div.container{
-clear: none; 
-height: 93%;
-width: 100%;
-background-image:url('background.png');
-}
-
-div.left{
-/*position: absolute;*/
-float: left;
-width: 80%;
-height: 90%;
-/*display:inline-block;*/
-border-width: 5px;
-border-color: #001200;
-border-radius: 1px;
-font-size: 4em;
-font-family: Happy Monkey;
-font-weight: bold;
-text-shadow: 0 0 0.15em #000000;
-text-align: center;
-color: #FFFFFF;
-vertical-align: middle;
-}
-  div.youtube, #myytplayer{
-  width: 90%
-  margin: 0 auto;
-  padding-left: 0 1%;
-  position: relative;
-  }
-  input.link{
-  width: 60%;
-  height: 50px;
-  margin: 0 auto;
-  padding: 15px 1%;
-  position: relative;
-  opacity:0.8;
-  filter:alpha(opacity:80);
-  }
-  #link{
   width: 60%;
   padding: 5px;
   background-color: #000000;
@@ -88,12 +47,41 @@ vertical-align: middle;
   text-align: justify;
   color: #FF0000;
   vertical-align: middle;
+
   }
+
+div.container{
+clear: none; 
+height: 93%;
+width: 100%;
+
+}
+
+div.#ytapiplayer{
+/*position: absolute;*/
+float: left;
+width: 80%;
+height: 100%;
+/*display:inline-block;*/
+border-width: 5px;
+border-color: #001200;
+border-radius: 1px;
+font-size: 4em;
+font-family: Happy Monkey;
+font-weight: bold;
+text-shadow: 0 0 0.15em #000000;
+text-align: center;
+color: #FFFFFF;
+vertical-align: middle;
+margin: 0 auto;
+padding: 0 1%;
+position: relative;
+}
 
 div.cams{
 float: right;
 width: 20%;
-height: 90%;
+height: 100%;
 /*display:inline-block;*/
 border-width: 5px;
 border-color: #001200;
