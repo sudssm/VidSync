@@ -92,8 +92,6 @@ function incoming (fb) {
     showWelcomeMessage();
     $("#chat").prepend("<h1>"+roomName+"</h1>");
     $("#chat").show();
-
-
     runWebcam(tokboxSession, tokboxToken);
   }
 
