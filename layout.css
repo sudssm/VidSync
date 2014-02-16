@@ -103,14 +103,15 @@ vertical-align: middle;
   left: 0;
   }
   div.chat{
-  width: 90%;
+  width: 80%;
   height: 300px;
   margin: 0 auto;
-  padding: 10px;
+  padding: 5px;
   position: relative;
   border: 3px solid;
   border-width: 5px;
-  border-color: #FF0000;  
+  border-color: #8C0A0A;  
+  background-color: #8C0A0A;
   }
   #message{
   width: 90%;
@@ -192,7 +193,7 @@ border-radius: 20px; /*rounded edges*/
 }
 #chat ul li {
   font-size: 10px;
-  padding-bottom: 5px;
+  padding-bottom: 3px;
 }
 .name {
   padding-right: 1px;
