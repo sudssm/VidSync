@@ -97,27 +97,22 @@ function makeYtPlayer(vid) {
     "ytapiplayer", "100%", "100%", "8", null, null, params, atts);           
 }
 function makeMp4Player(data) {
-  disableUntil = null;
-  jwplayer("ytapiplayer").setup({file: data.video, width: "100%", height: "100%"});
-  mp4player = jwplayer();
-  mp4player.onReady(function() {
-    var instastop = true;
-    mp4player.onPlay(function(){
-      if (instastop){
-        console.log('setup');
-        instastop = false;
-        mp4player.pause(true);
-
-        //mp4player.onSeek(mp4SeekListener);
-        mp4player.onPlay(function() {mp4PlayPauseListener(true)});
-        mp4player.onPause(function() {mp4PlayPauseListener(false)});
-
-        handleMp4Inc(data);
-      }
-    })
-    mp4player.play(true);
-  })
+  $("#ytapiplayer").html("");
+  $("#ytapiplayer").flowplayer({
+    // one video: a one-member playlist
+      playlist: [
+         [
+            { mp4: data.video },
+         ]
+      ],
+      ratio: 3/4 // video with 4:3 aspect ratio
+   });
 }
+
+
+flowplayer(function (api, root) {
+  mp4player = api;
+});
 
 function onYouTubePlayerReady(playerId) {
   ytplayer = $("#myytplayer")[0];
