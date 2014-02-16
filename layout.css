@@ -153,7 +153,12 @@ font-size: 1em;
 text-shadow: 0 0 0.2em #FFF, 0 0 0.2em #FFF,
         0 0 0.2em #FFF
 }
-
+button#logo{
+border: 0;
+padding: 0;
+background: url('vidsync.png') no-repeat;
+height: 70px;
+}
 p{
 font-size: 12px;
 font-family: Arial, serif;
