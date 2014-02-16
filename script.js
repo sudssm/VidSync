@@ -103,9 +103,9 @@ function outgoing (playing, seek) {
 }
 
 function showWelcomeMessage () {
-  $("#inputs").html("<img src='vidsync.png' height='100%'>" +
-    "<input id='vid' type='text' placeholder='Choose a video'></input>" +
-    "<button id='choose'>Load</button><button id='upload'>Upload</button>");
+  $("#inputs").html("<tr><td><img src='vidsync.png' height='100%'></td>" +
+    "<td><input id='vid' type='text' placeholder='Choose a video'></input></td>" +
+    "<td><button id='choose'>Load</button><button id='upload'>Upload</button></td></tr>");
   $("#choose").click(function(){
     var vid = $("#vid")[0].value + "#";
     if (vid.indexOf("youtube.com")>-1){
