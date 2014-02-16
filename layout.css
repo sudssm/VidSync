@@ -218,7 +218,7 @@ color: #FFFFFF;
 button {
   pointer: cursor;
 }
-#invite{
+#invite, #invite2{
 position: fixed;
 top: 2px;
 right: 10px;
