@@ -226,3 +226,8 @@ cursor:pointer;
 button {
   pointer: cursor;
 }
+#invite{
+position: fixed;
+bottom: 0;
+right: 0;
+}

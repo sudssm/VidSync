@@ -47,7 +47,7 @@
 	  <input id="message" type="textfield" placeholder="Enter a Message">
 	</div>
 	
-	<button id='invite'>Invite Friends</button>
+	<button id='friends'>Invite Friends</button>
       </div>
   </body>
 </html>
