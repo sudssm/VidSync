@@ -347,6 +347,13 @@ $(document).ready (function() {
     });     
     $('#loginbutton,#feedbutton').removeAttr('disabled');
     FB.getLoginStatus(updateStatusCallback);
+
+    $("#invite").click(function(){
+      FB.ui({
+        method: 'send',
+        link: 'http://www.smuralidhar.com/vidsync',
+      });
+    });
   });
 
 
