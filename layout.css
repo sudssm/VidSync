@@ -149,7 +149,7 @@ text-decoration:none;
 }
 /*Text*/
 
-#create, #join, #choose, #upload, #invite{
+#create, #join, #choose, #upload, #invite, #invite2{
 cursor: pointer;
 border: 0;
 padding: 0;
