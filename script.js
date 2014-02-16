@@ -133,7 +133,7 @@ function makeMp4Player(data) {
               loc = data.seek + pres - data.timestamp;
             else
               loc = data.seek;
-            var playing = mp4player.playing;
+            var playing = mp4player.getState() == "PLAYING";
 
             console.log(curr - loc);
             if (Math.abs (curr - loc) > 2 || 
