@@ -51,14 +51,14 @@ width: 100%;
 
 div.container{
 clear: none; 
-height: 93%;
+height: 90%;
 width: 100%;
 }
 
 div.youtube, #ytapiplayer, #myytplayer{
 float: left;
 width: 80%;
-height: 100%;
+height: 90%;
 margin: 0 auto;
 padding-left: 0 1%;
 }
@@ -128,6 +128,14 @@ a.nodec{
 text-decoration:none;
 }
 /*Text*/
+p#head{
+font-size:2em;
+font-family: Happy Monkey;
+margin-bottom:0px;
+margin-top: 0px;
+color: #FFFFFF
+
+}
 h1{
 font-size:1em;
 font-family: Happy Monkey;
