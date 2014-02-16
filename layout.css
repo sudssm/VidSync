@@ -104,10 +104,10 @@ vertical-align: middle;
   }
   div chatbox{  
   width: 80%;
-  height: 400px;
+  height: 300px;
   }
   div.chat{
-  height: 280px;
+  height: 250px;
   margin: 0 auto;
   padding: 1px;
   position: relative;
@@ -117,10 +117,10 @@ vertical-align: middle;
   background-color: #8C0A0A;
 
   }
-  #message{
+  #nickname, #message{
   width: 90%;
   margin: 0 auto;
-  padding: 10px;
+  padding: 1px;
   position: relative;
   }
   
