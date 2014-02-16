@@ -379,7 +379,8 @@ $(document).ready (function() {
 
 
   setInterval(function() {
-    $("#chatbox")[0].scrollTop = elem.scrollHeight;
+    var elem = $("#chatbox")[0];
+    elem.scrollTop = elem.scrollHeight;
   }, 5000);
 })
 
