@@ -82,7 +82,7 @@ function showWelcomeMessage () {
       dataRef.update({type:"mp4", video: $("#vid")[0].value});
     }
     else
-      alert ("link not recognized");
+      alert ("Link not recognized");
   });
 }
 
