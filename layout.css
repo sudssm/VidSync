@@ -17,8 +17,6 @@ width: 100%;
 padding: 0;
 margin: 0;
 background-image:url('background.png');
-
-/*background-color: #FFE8F6;*/
 }
 div.horiz{
 float: left;
@@ -42,7 +40,7 @@ width: 100%;
 
   }
   div#inputs{
-  width: 100%;
+  width: 50px;
   height: 60px;
   margin: 0 auto;
   padding: 0 1%;
