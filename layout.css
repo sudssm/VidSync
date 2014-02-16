@@ -60,6 +60,7 @@ div.left{
 float: left;
 width: 80%;
 height: 100%;
+display: block;
 /*display:inline-block;*/
 border-width: 5px;
 border-color: #001200;
