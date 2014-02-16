@@ -29,14 +29,6 @@ width: 100%;
   #room{
   opacity:0.8;
   filter:alpha(opacity:80);
-  }
-  div#inputs{
-  width: 60%;
-  height: 50px;
-  margin: 0 auto;
-  padding: 0 1%;
-  position: relative;
-  padding: 2px;
   background-color: #000000;
   border-width: 2px;
   border-color: #8A1565;
@@ -47,6 +39,15 @@ width: 100%;
   text-align: justify;
   color: #FF0000;
   vertical-align: middle;
+
+  }
+  div#inputs{
+  width: 60%;
+  height: 50px;
+  margin: 0 auto;
+  padding: 0 1%;
+  position: relative;
+  padding: 2px;
   }
 
 
@@ -137,6 +138,7 @@ height: 90px;
 width: 80px;
 font-style: bold;
 font-family: 'Lily Script One', Georgia, Serif; 
+font-size: 1em;
 }
 
 p#head{
