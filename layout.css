@@ -56,21 +56,17 @@ width: 100%;
 }
 
 #ytapiplayer{
-/*position: absolute;*/
 float: left;
 width: 50%;
 height: 100%;
-/*display:inline-block;*/
 border-width: 5px;
 border-color: #001200;
 border-radius: 1px;
-font-size: 4em;
 font-family: Happy Monkey;
-font-weight: bold;
 text-shadow: 0 0 0.15em #000000;
 text-align: center;
 color: #FFFFFF;
-vertical-align: middle;
+/*vertical-align: middle;*/
 margin: 0 auto;
 padding: 0 1%;
 }
@@ -79,7 +75,6 @@ div.cams{
 float: right;
 width: 20%;
 height: 100%;
-/*display:inline-block;*/
 border-width: 5px;
 border-color: #001200;
 border-radius: 1px;
