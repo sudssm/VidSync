@@ -375,7 +375,12 @@ $(document).ready (function() {
         chatOut($("#message")[0].value);
 	$("#message")[0].value = null;
     }
-  })
+  });
+
+
+  setInterval(function() {
+    $("#chatbox")[0].scrollTop = elem.scrollHeight;
+  }, 5000);
 })
 
 function coverUp() {
@@ -383,5 +388,4 @@ function coverUp() {
   var x = iframe.offset().left;
   var y = iframe.offset().top;
   var cover = $("<div class='cover' style=\"z-index: 99999999999999; position:absolute;background:white; width:200px; height:75px;top:"+y+";left:"+x+"\"</div>").appendTo("body")
-
 }
