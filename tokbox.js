@@ -23,17 +23,17 @@ function runWebcam(sessionId, token){
     }
 
     function subscribeToStreams(streams) {
-        for (var i = 0; i < streams.length; i++) {
-            var stream = streams[i];
-            if (stream.connection.connectionId != session.connection.connectionId) {
-		var options = {subscribeToAudio:false, subscribeToVideo:true, width:200, height:150};
-//		$("#cams").append('<div id=\''+i+'\'</div>');
-		session.subscribe(stream, 'cam1', options);
+//        for (var i = 0; i < streams.length; i++) {
+//            var stream = streams[i];
+        if (stream.connection.connectionId != session.connection.connectionId) {
+	    var options = {subscribeToAudio:false, subscribeToVideo:true, width:200, height:150};
+	    //		$("#cams").append('<div id=\''+i+'\'</div>');
+	    session.subscribe(stream, 'cam1', options);
 //		subscriber.subscribeToAudio(false);
 //		subscriber.subscribeToVideo(true);
 //		session.publish(publisher);
 //		session.subscribe(stream);
-            }
+//            }
         }
     }
     function exceptionHandler(event) {
