@@ -325,6 +325,7 @@ $(document).ready (function() {
     var key = window.event ? e.keyCode : e.which;
     if (key == '13') {
         chatOut($("#message")[0].value);
+	$("#message")[0].value = null;
     }
   })
 })

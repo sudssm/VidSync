@@ -111,7 +111,13 @@ vertical-align: middle;
   border: 3px solid;
   border-width: 5px;
   border-color: #FF0000;  
-}
+  }
+  #message{
+  width: 90%;
+  margin: 0 auto;
+  padding: 10px;
+  position: relative;
+  }
   
 /*Non divs*/
 a {
