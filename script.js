@@ -71,11 +71,12 @@ function incoming (fb) {
   }
 }
 
-function outgoing (playing, seek) {
+function outgoing (playing, seek, callback) {
   console.log("out");
   console.log({playing:playing, seek:seek});
   dataRef.update(
-    {playing: playing, seek: seek, timestamp: now(), owner: id}
+    {playing: playing, seek: seek, timestamp: now(), owner: id},
+    callback
   );
 }
 
@@ -247,8 +248,9 @@ function mp4SeekListener () {
     return;
   }
   console.log("seek");
-  mp4player.pause();
-  outgoing (false, mp4player.getPosition());
+  outgoing (false, mp4player.getPosition(), function(){
+    mp4player.pause();
+  });
 }
 
 function now () {
