@@ -314,7 +314,7 @@ $(document).ready (function() {
 
   $("#upload").click(function(){
     filepicker.pick(
-      [extension: '.mp4'],
+      {extension: '.mp4'},
       function(res){
         dataRef.update({type: "mp4", video: res.url});
       });
