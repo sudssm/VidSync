@@ -22,6 +22,9 @@ div.horiz{
 float: left;
 height: 10%;
 width: 100%;
+background-color: #FFFFFF:
+opacity: 0.4;
+filter:alpha(opacity:80);
 }
   #room, #vid{
   opacity:0.8;
