@@ -13,7 +13,7 @@ function runWebcam(sessionId, token){
         subscribeToStreams(event.streams);
 	var pubOptions = {publishAudio:false, publishVideo:true, width:100, height:75};
         var publisher = TB.initPublisher(apiKey, "cam0", pubOptions);
-	publisher.publishAudio(false);
+//	publisher.publishAudio(false);
 	session.publish(publisher);
     }
 
@@ -29,7 +29,7 @@ function runWebcam(sessionId, token){
 		var options = {subscribeToAudio:false, subscribeToVideo:true, width:200, height:150};
 //		$("#cams").append('<div id=\''+i+'\'</div>');
 		subscriber = session.subscribe(stream, 'cam1', options);
-		subscriber.subscribeToAudio(false);
+//		subscriber.subscribeToAudio(false);
 		subscriber.subscribeToVideo(true);
 //		session.publish(publisher);
 //		session.subscribe(stream);
