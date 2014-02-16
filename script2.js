@@ -29,6 +29,7 @@ function runWebcam(sessionId, token){
         var publisher = TB.initPublisher(apiKey,
                                          "cam1",
                                          {width:100, height:75})
+	session.publish(publisher);
     }
 
     function streamCreatedHandler(event) {
@@ -43,7 +44,8 @@ function runWebcam(sessionId, token){
                 var subscriber = session.subscribe(stream,
                                                    "cam2",
                                                    {width:200, height:150})
-                session.publish(publisher);
+//                session.publish(publisher);
+//		session.subscribe(stream);
             }
         }
     }
