@@ -102,31 +102,30 @@ vertical-align: middle;
   top: 0;
   left: 0;
   }
-  #chatbox{  
-  width: 200px;
-  height: 300px;
-  position: fixed;
-  bottom: 10px;
-  right: 50px;
-  cursor: pointer;
-}
-  }
   div.chat{
+  width: 200px;
   height: 250px;
   margin: 0 auto;
   padding: 1px;
-  position: relative;
   border: 3px solid;
   border-width: 5px;
   border-color: #8C0A0A;  
   background-color: #8C0A0A;
-
+  position: fixed;
+  bottom: 10px;
+  right: 50px;
+  }
+  #chatbox{  
+  height: 200px;
+  position: fixed;
+  bottom: 10px;
+  right: 50px;
+  overflow: auto;
   }
   #nickname, #message{
   width: 90%;
   margin: 0 auto;
   padding: 1px;
-  position: relative;
   }
   
 /*Non divs*/
@@ -149,7 +148,9 @@ a.nodec{
 text-decoration:none;
 }
 /*Text*/
+
 #create, #join, #choose, #upload{
+cursor: pointer;
 border: 0;
 padding: 0;
 background: url('popcorn.png') no-repeat;
@@ -192,7 +193,7 @@ cursor:pointer;
 }
 
 #chat {
-  margin-top: 5px;
+  margin-top: 1px;
   text-align: left;
   overflow-y: auto;
   display: none
@@ -203,7 +204,7 @@ cursor:pointer;
 }
 #chat ul li {
   font-size: 10px;
-  padding-bottom: 3px;
+  padding-bottom: 1px;
 }
 .name {
   padding-right: 1px;
