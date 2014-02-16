@@ -6,6 +6,9 @@ function runWebcam(sessionId, token){
     TB.setLogLevel(TB.DEBUG);
     session.addEventListener("sessionConnected", sessionConnectedHandler);
     session.addEventListener("streamCreated", streamCreatedHandler);
+
+    session.addEventListener("streamDestroyed", streamDestroyedHandler);
+ 
     session.connect(apiKey, token);
     
     function sessionConnectedHandler(event) {
@@ -23,20 +26,30 @@ function runWebcam(sessionId, token){
     }
 
     function subscribeToStreams(streams) {
-        if (streams[0].connection.connectionId != session.connection.connectionId) {
-	    var options = {subscribeToAudio:false, subscribeToVideo:true, width:200, height:150};
-	    //		$("#cams").append('<div id=\''+i+'\'</div>');
-	    session.subscribe(stream, 'cam1', options);
-	    //		subscriber.subscribeToAudio(false);
-	    //		subscriber.subscribeToVideo(true);
-	    //		session.publish(publisher);
-	    //		session.subscribe(stream);
-	    //            }
-	    //        for (var i = 0; i < streams.length; i++) {
-	    //            var stream = streams[i];
+        for (var i = 0; i < streams.length; i++) {
+	    var stream = streams[i];
+            if (stream.connection.connectionId != session.connection.connectionId) {
+		var options = {subscribeToAudio:false, subscribeToVideo:true, width:200, height:150};
+		//		$("#cams").append('<div id=\''+i+'\'</div>');
+		session.subscribe(stream, 'cam1', options);
+		//		subscriber.subscribeToAudio(false);
+		//		subscriber.subscribeToVideo(true);
+		//		session.publish(publisher);
+		//		session.subscribe(stream);
+	    }
+
 	    
         }
     }
+
+    function streamDestroyedHandler(event) {
+	for (var i = 0; i < event.streams.length; i++) {
+            var stream = event.streams[i];
+	    session.unsubscribe(stream);
+//            alert("Stream stopped streaming. Reason: " + event.reason)
+	}
+    }
+
     
     function exceptionHandler(event) {
         alert(event.message);
