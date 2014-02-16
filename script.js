@@ -347,9 +347,12 @@ $(document).ready (function() {
     });
 
     $("#invite").click(function(){
+      url = "http://www.smuralidhar.com/vidsync";
+      if (roomName != null)
+        url += "#" + roomName;
       FB.ui({
         method: 'send',
-        link: 'http://www.smuralidhar.com/vidsync',
+        link: url,
       });
     });
   });
