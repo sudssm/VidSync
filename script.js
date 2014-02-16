@@ -68,13 +68,6 @@ function chatOut (msg) {
   })
 }
 
-$("#message").keyup(function(event){
-  e.preventDefault();
-  var key = window.event ? e.keyCode : e.which;
-  if (key == '13') {
-      chatOut($("#message")[0].value)
-  }
-})
 
 function incoming (fb) {
   var data = fb.val();
@@ -315,4 +308,12 @@ $(document).ready (function() {
   $("#join").click(function() {
     joinRoom($("#room")[0].value)
   });
+
+  $("#message").keyup(function(e){
+    e.preventDefault();
+    var key = window.event ? e.keyCode : e.which;
+    if (key == '13') {
+        chatOut($("#message")[0].value)
+    }
+  })
 })
