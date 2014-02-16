@@ -6,7 +6,7 @@ function runWebcam(sessionId, token){
     var publisher = TB.initPublisher(apiKey,
                                  "myPublisher",
                                  {width:200, height:150})
-session.publish(publisher);
+    //session.publish(publisher);
     TB.setLogLevel(TB.DEBUG);
     session.addEventListener("sessionConnected", sessionConnectedHandler);
     session.addEventListener("streamCreated", streamCreatedHandler);
