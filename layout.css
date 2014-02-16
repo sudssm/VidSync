@@ -22,18 +22,18 @@ background-image:url('background.png');
 }
 div.horiz{
 float: left;
-height: 10%;
+height: 15%;
 width: 100%;
-/*position: absolute;*/
 }
   #room{
   opacity:0.8;
   filter:alpha(opacity:80);
   background-color: #000000;
-  border-width: 2px;
+  border-width: 1px;
   border-color: #8A1565;
+  border-radius: 2px;
   font-size: 0.8em;
-  font-family: Happy Monkey;
+  font-family: "Happy Monkey";
   font-weight: bold;
   text-shadow: 0 0 0.15em #4F0C3A;
   text-align: justify;
@@ -43,7 +43,7 @@ width: 100%;
   }
   div#inputs{
   width: 100%;
-  height: 50px;
+  height: 60px;
   margin: 0 auto;
   padding: 0 1%;
   position: relative;
