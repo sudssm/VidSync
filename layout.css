@@ -183,5 +183,7 @@ border-radius: 20px; /*rounded edges*/
 }
 
 #chat ul {
+  list-style-type: none;
+  text-align: left
   font-size: .3em;
 }
