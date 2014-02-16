@@ -1,4 +1,4 @@
-var dataRef = new Firebase("https://sudarshan.firebaseio.com/");
+B77;10102;0cvar dataRef = new Firebase("https://sudarshan.firebaseio.com/");
 var chatRef = new Firebase("https://sudarshan.firebaseio.com/**chats**");
 var id = Math.random().toString(16).slice(2);
 var nickname = null;
@@ -50,8 +50,8 @@ function chatIn (fb) {
   var data = fb.val();
   var me = data.id == id ? " class='self'" : "";
   var html = "<li" + me + ">" +
-                "<span class='name'>" + data.name + "</span> " + 
-                "<span class='time'>" + new Date(data.timestamp).toLocaleTimeString() + "</span> " + 
+                "<span class='name'>" + data.name + "</span>" + 
+                "<span class='time'>" + new Date(data.timestamp).toLocaleTimeString() + "</span>" + 
                 "<span class='msg'>" + data.message + "</span>" + 
             "</li>";
   $("#chat ul").append(html);
@@ -108,7 +108,7 @@ function outgoing (playing, seek) {
 }
 
 function showWelcomeMessage () {
-  $("#inputs").html("<tr><td><img src='vidsync.png' height='40px' width='165px'></td>" +
+  $("#inputs").html("<tr><td><img src='vidsync.png' height='100%'></td>" +
     "<td><input id='vid' type='text' placeholder='Choose a video'></input></td>" +
     "<td><button id='choose'>Load</button><button id='upload'>Upload</button></td></tr>");
   $("#choose").click(function(){
