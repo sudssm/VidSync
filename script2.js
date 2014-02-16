@@ -10,6 +10,51 @@ var disableUntil;
 
 var last_in = null;
 
+function runWebcam(){
+    var apiKey = 44651662;
+    var sessionId = tokboxSession;
+    var token = tokboxToken;
+    TB.addEventListener("exception", exceptionHandler);
+    var session = TB.initSession(sessionId);
+
+    TB.setLogLevel(TB.DEBUG);
+    session.addEventListener("sessionConnected", sessionConnectedHandler);
+    session.addEventListener("streamCreated", streamCreatedHandler);
+    session.connect(apiKey, token);
+
+    function sessionConnectedHandler(event) {
+        console.log("connected");
+        subscribeToStreams(event.streams);
+        var publisher = TB.initPublisher(apiKey,
+                                         "cam1",
+                                         {width:100, height:75})
+    }
+
+    function streamCreatedHandler(event) {
+        console.log("created");
+        subscribeToStreams(event.streams);
+    }
+
+    function subscribeToStreams(streams) {
+        for (var i = 0; i < streams.length; i++) {
+            var stream = streams[i];
+            if (stream.connection.connectionId != session.connection.connectionId) {
+                var subscriber = session.subscribe(stream,
+                                                   "cam2",
+                                                   {width:200, height:150})
+                session.publish(publisher);
+            }
+        }
+    }
+    function exceptionHandler(event) {
+        alert(event.message);
+    }
+}
+
+
+
+
+
 
 function makeRoom (name) {
   $.getJSON("http://www.smuralidhar.com/pennapps2014s/generate.php", function(res){
