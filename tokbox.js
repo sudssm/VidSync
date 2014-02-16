@@ -28,7 +28,7 @@ function runWebcam(sessionId, token){
 		var random = Math.random().toString(36).substring(7);
 		console.log(random);
 		$("#cams").append('<div id=\''+rand+'\'</div>');
-		var subscriber = session.subscribe(stream, '\''+rand+'\'', {width:200, height:150});
+		var subscriber = session.subscribe(stream, '\''+random+'\'', {width:200, height:150});
 		session.publish(subscriber);
             }
         }
