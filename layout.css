@@ -112,14 +112,14 @@ vertical-align: middle;
   border-color: #8C0A0A;  
   background-color: #8C0A0A;
   position: fixed;
-  bottom: 10px;
-  right: 50px;
+  bottom: 0;
+  right: 20px;
   }
   #chatbox{  
   height: 200px;
   position: fixed;
-  bottom: 10px;
-  right: 50px;
+  bottom: 0;
+  right: 20px;
   overflow: auto;
   }
   #nickname, #message{

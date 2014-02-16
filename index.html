@@ -11,6 +11,13 @@
 
     <script src = "script.js"></script>
     <script src = "tokbox.js"></script>
+    <script type='text/javascript'>
+      window.setInterval(function() {
+      var elem = document.getElementById('chatbox');
+      elem.scrollTop = elem.scrollHeight;
+      }, 5000);
+
+    </script>
   </head>
   <body>
     <div class='horiz' id='head'>
@@ -27,12 +34,12 @@
 </object> <!--left-->
       <div class='cams'> <!--right-->
 	<div id='cam0' style="float:left"></div>
-
+	
 	<div id='cam1'></div>
-	  <div id='chat' class='chat'>	
+	<div id='chat' class='chat'>	
 	  <input type="text" id="nickname" placeholder="Enter your name">
-	<div id='chatbox'>  
-
+	  <div id='chatbox'>  
+	    
 	    <ul>
 	      
 	    </ul>
