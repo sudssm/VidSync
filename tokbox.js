@@ -27,9 +27,9 @@ function runWebcam(sessionId, token){
 		var random = Math.random().toString(36).substring(7);
 		console.log(random);
 //		$("#cams").append('<div id=\''+rand+'\'</div>');
-//		var subscriber = session.subscribe(stream, '\''+random+'\'', {width:200, height:150});
-//		session.publish(subscriber);
-		session.subscribe(stream);
+		var subscriber = session.subscribe(stream, 'blah', {width:200, height:150});
+		session.publish(subscriber);
+//		session.subscribe(stream);
             }
         }
     }
