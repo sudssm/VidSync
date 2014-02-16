@@ -2,7 +2,7 @@ var dataRef = new Firebase("https://sudarshan.firebaseio.com/");
 var chatRef = new Firebase("https://sudarshan.firebaseio.com/**chats**");
 var id = Math.random().toString(16).slice(2);
 
-filepicker.setKey("AzauR2MBSBeslVoQIcZ8gz");
+filepicker.setKey("AWgdx42rMTr6jvgv3Vwl4z");
 
 var ytplayer = null;
 var mp4player = null;
