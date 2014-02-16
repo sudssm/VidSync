@@ -131,9 +131,11 @@ function showWelcomeMessage () {
   });
   $("#upload").click(function(){
     filepicker.pickAndStore(
-      {extension: '.mp4'},
+      {extension: '.mp4', multiple:false},
       {location: 'S3'},
-      function(res){
+      function(InkBlobs){
+        console.log(InkBlobs);
+        var key = InkBlobs[0].key;
         dataRef.update({type: "mp4", video: res.url});
       });
     coverUp();
