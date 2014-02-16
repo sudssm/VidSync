@@ -2,6 +2,11 @@ function runWebcam(sessionId, token){
     var apiKey = 44651662;
     TB.addEventListener("exception", exceptionHandler);
     var session = TB.initSession(sessionId);
+
+    var publisher = TB.initPublisher(apiKey,
+                                 "myPublisher",
+                                 {width:200, height:150})
+session.publish(publisher);
     TB.setLogLevel(TB.DEBUG);
     session.addEventListener("sessionConnected", sessionConnectedHandler);
     session.addEventListener("streamCreated", streamCreatedHandler);
