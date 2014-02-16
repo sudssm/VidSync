@@ -158,6 +158,8 @@ text-shadow: 0 0 0.2em #FFF, 0 0 0.2em #FFF,
 border: 0;
 padding: 0;
 background: url('vidsync.png') no-repeat;
+height: 80px;
+width: 60px;
 }
 p{
 font-size: 12px;
