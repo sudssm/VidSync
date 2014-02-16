@@ -137,8 +137,12 @@ function makeMp4Player(data) {
 
             console.log(curr - loc);
             if (Math.abs (curr - loc) > 2 || 
-                data.playing != playing)
-              handleMp4Inc(data);
+                data.playing != playing){
+              if (data.owner == id)
+                outgoing(playing, mp4player.getPosition());
+              else
+                handleMp4Inc(data);
+          }
           })
         }, 2000);
       }
