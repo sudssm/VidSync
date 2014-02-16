@@ -2,6 +2,8 @@ var dataRef = new Firebase("https://sudarshan.firebaseio.com/");
 var chatRef = new Firebase("https://sudarshan.firebaseio.com/**chats**");
 var id = Math.random().toString(16).slice(2);
 
+filepicker.setKey("AzauR2MBSBeslVoQIcZ8gz");
+
 var ytplayer = null;
 var mp4player = null;
 
@@ -113,7 +115,7 @@ function outgoing (playing, seek) {
 
 function showWelcomeMessage () {
   $("#inputs").html("<tr><td><img src='vidsync.png' height='40px' width='165px'></td>" +
-    "<td><input id='vid' type='text' placeholder='Choose a video'></input></td>" +
+    "<td><input id='vid' type='text' placeholder='Choose a video (Youtube or MP4)'></input></td>" +
     "<td><button id='choose'>Load</button><button id='upload'>Upload</button></td></tr>");
   $("#choose").click(function(){
     var vid = $("#vid")[0].value + "#";
@@ -308,6 +310,14 @@ $(document).ready (function() {
   });
   $("#join").click(function() {
     joinRoom($("#room")[0].value)
+  });
+
+  $("#upload").click(function(){
+    filepicker.pick(
+      [extension: '.mp4'],
+      function(res){
+        dataRef.update({type: "mp4", video: res.url});
+      });
   });
 
   $("#message").keyup(function(e){

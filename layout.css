@@ -172,6 +172,7 @@ border-width: 5px;
 border-color: #001200;
 margin: 7px;
 border-radius: 20px; /*rounded edges*/
+cursor:pointer;
 }
 
 #chat {
