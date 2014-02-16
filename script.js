@@ -344,9 +344,7 @@ $(document).ready (function() {
   $.getScript('//connect.facebook.net/en_UK/all.js', function(){
     FB.init({
       appId: '1534846250073976',
-    });     
-    $('#loginbutton,#feedbutton').removeAttr('disabled');
-    FB.getLoginStatus(updateStatusCallback);
+    });
 
     $("#invite").click(function(){
       FB.ui({
