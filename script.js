@@ -71,12 +71,11 @@ function incoming (fb) {
   }
 }
 
-function outgoing (playing, seek, callback) {
+function outgoing (playing, seek) {
   console.log("out");
   console.log({playing:playing, seek:seek});
   dataRef.update(
-    {playing: playing, seek: seek, timestamp: now(), owner: id},
-    callback
+    {playing: playing, seek: seek, timestamp: now(), owner: id}
   );
 }
 
@@ -110,43 +109,35 @@ function makeMp4Player(data) {
   jwplayer("ytapiplayer").setup({file: data.video, width: "80%", height: "90%"});
   mp4player = jwplayer();
   mp4player.onReady(function() {
-    var instastop = true;
-    mp4player.onPlay(function(){
-      if (instastop){
-        console.log('setup');
-        instastop = false;
-        mp4player.pause(true);
+    console.log('setup');
+    
+    mp4player.onSeek(mp4SeekListener);
+    mp4player.onPlay(function() {mp4PlayPauseListener(true)});
+    mp4player.onPause(function() {mp4PlayPauseListener(false)});
 
-        mp4player.onSeek(mp4SeekListener);
-        mp4player.onPlay(function() {mp4PlayPauseListener(true)});
-        mp4player.onPause(function() {mp4PlayPauseListener(false)});
+    handleMp4Inc(data);
 
-        handleMp4Inc(data);
+    setInterval(function(){
+      dataRef.once('value', function(data){
+        var pres = now();
+        var curr = mp4player.getPosition();
+        data = data.val();
+        if (data.playing)
+          loc = data.seek + pres - data.timestamp;
+        else
+          loc = data.seek;
+        var playing = mp4player.getState() == "PLAYING";
 
-        setInterval(function(){
-          dataRef.once('value', function(data){
-            var pres = now();
-            var curr = mp4player.getPosition();
-            data = data.val();
-            if (data.playing)
-              loc = data.seek + pres - data.timestamp;
-            else
-              loc = data.seek;
-            var playing = mp4player.getState() == "PLAYING";
-
-            console.log(curr - loc);
-            if (Math.abs (curr - loc) > 2 || 
-                data.playing != playing){
-              if (data.owner == id)
-                outgoing(playing, mp4player.getPosition());
-              else
-                handleMp4Inc(data);
-          }
-          })
-        }, 2000);
+        console.log(curr - loc);
+        if (Math.abs (curr - loc) > 2 || 
+            data.playing != playing){
+          if (data.owner == id)
+            outgoing(playing, mp4player.getPosition());
+          else
+            handleMp4Inc(data);
       }
-    })
-    mp4player.play(true);
+      })
+    }, 2000);
   })
 }
 
