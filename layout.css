@@ -97,7 +97,7 @@ vertical-align: middle;
   position: relative;
   }
   #cam1{
-  width: 100px;
+  width: 10px;
   height: 75px;
   position: relative;
   top: 0; left: 0;
@@ -154,13 +154,13 @@ text-shadow: 0 0 0.2em #FFF, 0 0 0.2em #FFF,
         0 0 0.2em #FFF
 }
 
-#logo{
+/*#logo{
 border: 0;
 padding: 0;
 background: url('vidsync.png') no-repeat;
 height: 40px;
 width: 165px;
-}
+}*/
 p{
 font-size: 12px;
 font-family: Arial, serif;
@@ -174,7 +174,7 @@ margin-top: 0px;
 color: #FFFFFF
 }
 p#intro{
-padding: 2%;
+padding: 5% 10% 5% 10%;
 text-align: justify;
 font-size: 2em;
 font-family: 'Happy Monkey', Arial, Serif;
