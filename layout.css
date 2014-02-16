@@ -191,15 +191,15 @@ border-radius: 20px; /*rounded edges*/
   text-align: left;
 }
 .name {
-  padding-right: 2px;
+  padding-right: 1px;
   font-size: .2em
 }
 .time {
-  padding-right: 2px;
-  font-size: .1em;
+  padding-right: 1px;
+  font-size: .15em;
 }
-.message {
-  font-size: .2em;
+.msg {
+  font-size: .22em;
 }
 .self .name{
   color: green;
