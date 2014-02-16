@@ -53,6 +53,8 @@ function incoming (fb) {
     tokboxSession = data.sessionId;
     tokboxToken = data.token;
     showWelcomeMessage();
+
+    runWebcam(tokboxSession, tokboxToken);
   }
 
   if (data.type == "YT") {
@@ -105,7 +107,7 @@ function makeYtPlayer(vid) {
 }
 function makeMp4Player(data) {
   disableUntil = false;
-  jwplayer("ytapiplayer").setup({file: data.video, width: "100%", height: "100%"});
+  jwplayer("ytapiplayer").setup({file: data.video, width: "80%", height: "90%"});
   mp4player = jwplayer();
   mp4player.onReady(function() {
     var instastop = true;
@@ -260,43 +262,3 @@ $(document).ready (function() {
     joinRoom($("#room")[0].value)
   });
 })
-
-
-
-// tokbox code
-function runWebcam(sessionId, token){
-    var apiKey = 44651662;
-    TB.addEventListener("exception", exceptionHandler);
-    var session = TB.initSession(sessionId);
-
-    TB.setLogLevel(TB.DEBUG);
-    session.addEventListener("sessionConnected", sessionConnectedHandler);
-    session.addEventListener("streamCreated", streamCreatedHandler);
-    session.connect(apiKey, token);
-
-    function sessionConnectedHandler(event) {
-        console.log("connected");
-        subscribeToStreams(event.streams);
-        var publisher = TB.initPublisher(apiKey, "cam1", {width:100, height:75});
-  session.publish(publisher);
-    }
-
-    function streamCreatedHandler(event) {
-        console.log("created");
-        subscribeToStreams(event.streams);
-    }
-
-    function subscribeToStreams(streams) {
-        for (var i = 0; i < streams.length; i++) {
-            var stream = streams[i];
-            if (stream.connection.connectionId != session.connection.connectionId) {
-    $("#cams").append('<div id=\''+'cam'+cams+'\'</div>');
-                var subscriber = session.subscribe(stream, '\'cam'+cams+'\'', {width:200, height:150});
-                session.publish(subscriber);
-            }
-        }
-    }
-    function exceptionHandler(event) {
-        alert(event.message);
-    }
-}
