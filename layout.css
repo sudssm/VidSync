@@ -109,8 +109,8 @@ vertical-align: middle;
   left: 0;
   }
   div.chat{
-  width: 80%;
-  height: 50%;
+  width: 300px;
+  height: 300px;
   margin: 0 auto;
   padding: 10px;
   position: relative;
@@ -152,6 +152,7 @@ font-size: 1em;
 text-shadow: 0 0 0.2em #FFF, 0 0 0.2em #FFF,
         0 0 0.2em #FFF
 }
+
 p{
 font-size: 12px;
 font-family: Arial, serif;
