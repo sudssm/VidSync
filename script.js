@@ -17,8 +17,11 @@ var last_in = null;
 
 var first_run; 
 
+var creating;
+
 
 function makeRoom (name) {
+  creating = true;
   $.getJSON("http://www.smuralidhar.com/pennapps2014s/generate.php", function(res){
       dataRef = dataRef.root();
       dataRef = dataRef.child(name);
@@ -81,9 +84,12 @@ function incoming (fb) {
   console.log("inc");
   console.log(data);
 
-  if (data == null){
-    alert("room does not exist");
+  if (!creating && data == null){
+    alert("This room does not exist! Creating a new room.");
+    makeRoom(roomName);
+    return;
   }
+  creating = false;
 
   if (last_in && (data.video != last_in.video || data.type != last_in.type)){
     $("#container").html("<div id='ytapiplayer'></div>");
