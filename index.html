@@ -12,8 +12,11 @@
     <script src = "script.js"></script>
     <script src = "tokbox.js"></script>
     <script type='text/javascript'>
-      var objDiv = document.getElementById('#chatbox');
-      objDiv.scrollTop = objDiv.scrollHeight;
+      window.setInterval(function() {
+      var elem = document.getElementById('chatbox');
+      elem.scrollTop = elem.scrollHeight;
+      }, 5000);
+
     </script>
   </head>
   <body>
