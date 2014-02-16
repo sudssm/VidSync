@@ -15,6 +15,8 @@ var disableUntil;
 
 var last_in = null;
 
+var first_run; 
+
 
 function makeRoom (name) {
   $.getJSON("http://www.smuralidhar.com/pennapps2014s/generate.php", function(res){
@@ -34,7 +36,9 @@ function makeRoom (name) {
       }
     );
     chatRef = chatRef.child(name);
-    chatRef.on('child_added', chatIn)
+    chatRef.on('child_added', chatIn);
+    first_run = true;
+    roomName = name;
   });
 }
 
@@ -44,6 +48,8 @@ function joinRoom (name) {
   dataRef.on('value', incoming);
   chatRef = chatRef.child(name);
   chatRef.on('child_added', chatIn)
+  first_run = true;
+  roomName = name;
 }
 
 function chatIn (fb) {
@@ -80,8 +86,7 @@ function incoming (fb) {
     alert("room does not exist");
   }
 
-  if (roomName == null){
-    roomName = name;
+  if (first_run){
     tokboxSession = data.sessionId;
     tokboxToken = data.token;
     showWelcomeMessage();
@@ -138,6 +143,9 @@ function showWelcomeMessage () {
         var key = InkBlobs[0].key;
         var url = "http://s3-us-west-2.amazonaws.com/vidsync/" + key;
         dataRef.update({type: "mp4", video: url});
+        $("#cover").hide();
+      },
+      function(){
         $("#cover").hide();
       });
     coverUp();
