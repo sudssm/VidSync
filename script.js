@@ -31,7 +31,7 @@ function makeRoom (name) {
         sessionId: res.sessionId, 
         token: res.token,
         owner: id,
-        chat: []
+        chat []
       }
     );
     chatRef = chatRef.child(name);
@@ -86,7 +86,7 @@ function incoming (fb) {
     tokboxSession = data.sessionId;
     tokboxToken = data.token;
     showWelcomeMessage();
-    $("#chat").show();
+    $("#chatbox").show();
 
     runWebcam(tokboxSession, tokboxToken);
   }
