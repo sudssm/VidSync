@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Tangerine');
 @import url('https://fonts.googleapis.com/css?family=Happy%20Monkey');
 @import url('https://fonts.googleapis.com/css?family=Averia%20Serif%20Libre');
-@import url('https://fonts.googleapis.com/css?family=The%20Girl%20Next%20Door');
-
+@import url('https://fonts.googleapis.com/css?family=Lily%20Script%20One');
 
 html{
 height: 100%;
@@ -25,55 +24,42 @@ div.horiz{
 float: left;
 height: 10%;
 width: 100%;
-/*position: absolute;*/
 }
-  div#inputs{
-  width: 60%;
-  height: 50px;
-  margin: 0 auto;
-  padding: 15px 1%;
-  position: relative;
+  #room, #vid{
   opacity:0.8;
   filter:alpha(opacity:80);
-  width: 60%;
-  padding: 5px;
   background-color: #000000;
-  border-width: 2px;
+  border-width: 1px;
   border-color: #8A1565;
+  border-radius: 2px;
   font-size: 0.8em;
-  font-family: Happy Monkey;
+  font-family: "Happy Monkey";
   font-weight: bold;
   text-shadow: 0 0 0.15em #4F0C3A;
   text-align: justify;
   color: #FF0000;
   vertical-align: middle;
+
+  }
+  div#inputs{
+  width: 100%;
+  height: 60px;
+  margin: 0 auto;
+  padding: 0 1%;
+  position: relative;
+  padding: 2px;
   }
 
 div.container{
 clear: none; 
-height: 93%;
-width: 50%;
+height: 85%;
+width: 100%;
 }
 
-div.left{
-/*position: absolute;*/
-display: block;
-/*display:inline-block;*/
-border-width: 5px;
-border-color: #001200;
-border-radius: 1px;
-font-size: 4em;
-font-family: Happy Monkey;
-font-weight: bold;
-text-shadow: 0 0 0.15em #000000;
-text-align: center;
-color: #FFFFFF;
-vertical-align: middle;
-}
 div.youtube, #ytapiplayer, #myytplayer{
 float: left;
 width: 80%;
-height: 100%;
+height: 90%;
 margin: 0 auto;
 padding-left: 0 1%;
 }
@@ -103,14 +89,14 @@ vertical-align: middle;
   position: relative;
   }
   #cam1{
-  width: 200px;
-  height: 150px;
+  width: 100px;
+  height: 75px;
   position: relative;
   top: 0; left: 0;
   }
   #cam2{
-  width: 100px;
-  height: 75px;
+  width: 200px;
+  height: 150px;
   position: relative;
   top: 0;
   left: 0;
@@ -143,6 +129,27 @@ a.nodec{
 text-decoration:none;
 }
 /*Text*/
+button{
+border: 0;
+padding: 0;
+background: url('http://www.seas.upenn.edu/~maryx/popcorn.png') no-repeat;
+height: 70px;
+width: 58px;
+font-style: bold;
+font-family: 'Lily Script One', Georgia, Serif; 
+font-size: 1em;
+text-shadow: 0 0 0.2em #FFF, 0 0 0.2em #FFF,
+        0 0 0.2em #FFF
+}
+
+p#head{
+font-size:2em;
+font-family: 'Happy Monkey';
+margin-bottom:0px;
+margin-top: 0px;
+color: #FFFFFF
+
+}
 h1{
 font-size:1em;
 font-family: Happy Monkey;
