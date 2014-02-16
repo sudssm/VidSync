@@ -10,10 +10,10 @@ var disableUntil;
 
 var last_in = null;
 
-function runWebcam(){
+function runWebcam(sessionId, token){
     var apiKey = 44651662;
-    var sessionId = tokboxSession;
-    var token = tokboxToken;
+//  var sessionId = tokboxSession;
+//  var token = tokboxToken;
     console.log(tokboxToken);
     TB.addEventListener("exception", exceptionHandler);
     var session = TB.initSession(sessionId);
@@ -138,6 +138,7 @@ function makeYtPlayer(vid) {
   var atts = { id: "myytplayer" };
   swfobject.embedSWF("http://www.youtube.com/v/" + vid + "?version=3&controls=1&enablejsapi=1&playerapiid=ytplayer&allowfullscreen=1", 
     "ytapiplayer", "100%", "100%", "8", null, null, params, atts);           
+  runWebcam(sessionId, token);
 }
 function makeMp4Player(data) {
   disableUntil = null;
