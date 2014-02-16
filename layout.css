@@ -20,7 +20,7 @@ background-image:url('background.png');
 }
 div.horiz{
 float: left;
-height: 15%;
+height: 13%;
 width: 100%;
 }
   table#inputs{
@@ -53,7 +53,7 @@ width: 100%;
 
 div.container{
 clear: none; 
-height: 80%;
+height: 85%;
 width: 100%;
 }
 
