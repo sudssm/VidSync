@@ -25,7 +25,7 @@ float: left;
 height: 15%;
 width: 100%;
 }
-  input.room{
+  #room, #vid{
   opacity:0.8;
   filter:alpha(opacity:80);
   background-color: #000000;
