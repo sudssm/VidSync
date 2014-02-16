@@ -141,7 +141,7 @@ a.nodec{
 text-decoration:none;
 }
 /*Text*/
-button{
+button#create, #join, #load, #upload{
 border: 0;
 padding: 0;
 background: url('popcorn.png') no-repeat;
