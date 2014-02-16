@@ -108,25 +108,22 @@ vertical-align: middle;
   position: fixed;
   bottom: 10px;
   right: 50px;
-  cursor: pointer;
-}
-  }
-  div.chat{
-  height: 200px;
-  margin: 0 auto;
-  padding: 1px;
-  position: relative;
   border: 3px solid;
   border-width: 5px;
   border-color: #8C0A0A;  
   background-color: #8C0A0A;
-
+}
+  }
+  div.chat{
+  height: 200px;
+  overflow: auto;
+  margin: 0 auto;
+  padding: 1px;
   }
   #nickname, #message{
   width: 90%;
   margin: 0 auto;
   padding: 1px;
-  position: relative;
   }
   
 /*Non divs*/
