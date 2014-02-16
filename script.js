@@ -83,6 +83,7 @@ function incoming (fb) {
 
   if (data == null){
     alert("room does not exist");
+    makeRoom(roomName);
   }
 
   if (last_in && (data.video != last_in.video || data.type != last_in.type)){
