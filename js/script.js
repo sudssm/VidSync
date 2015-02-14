@@ -41,6 +41,7 @@ function init(){
 
   $.getJSON("php/time.php", function(res){
     realTimeOffset = parseInt(res.timestamp) - now()
+    console.log(realTimeOffset)
   })
 
   toggleSidebar();
@@ -64,7 +65,7 @@ function makeRoom (name) {
       type: null, 
       video: null, 
       seek: 0, 
-      timestamp: now(), 
+      timestamp: now() + realTimeOffset, 
       playing: false, 
       sessionId: res.sessionId, 
       token: res.token,
@@ -104,10 +105,10 @@ function setupRoom(){
     if (vid.indexOf("youtube.com")>-1){
       var key = vid.substring(vid.indexOf("v=")+2, vid.indexOf("#"));
       var type = "YT";
-      dataRef.update({type: type, video: key, seek: 0});
+      dataRef.update({type: type, video: key, seek: 0, playing: false});
     }
     else if (vid.indexOf(".mp4") > -1){
-      dataRef.update({type:"mp4", video: $("#vid")[0].value, seek: 0});
+      dataRef.update({type:"mp4", video: $("#vid")[0].value, seek: 0, playing: false});
     }
     else
       alert ("Link not recognized");
@@ -137,7 +138,7 @@ function setupRoom(){
         console.log(InkBlobs);
         var key = InkBlobs[0].key;
         var url = "http://s3-us-west-2.amazonaws.com/vidsync/" + key;
-        dataRef.update({type: "mp4", video: url});
+        dataRef.update({type: "mp4", video: url, seek: 0, playing: false});
         $(".cover").hide();
       },
       function(FEError){
@@ -182,6 +183,8 @@ function incoming (fb) {
     setupRoom();
   }
 
+  data.timestamp -= realTimeOffset;
+
   if (data.type == "YT") {
     if (ytplayer == null)
       makeYtPlayer(data.video);
@@ -198,7 +201,7 @@ function incoming (fb) {
 
 function handleYtCommand (data){
   if (data.playing){
-    data.seek += now() - data.timestamp + realTimeOffset;
+    data.seek += now() - data.timestamp;
   }
   ytplayer.seekTo(data.seek);   
   controls.seek(data.seek)
@@ -206,7 +209,7 @@ function handleYtCommand (data){
   if (data.playing){
     ytplayer.playVideo()
     controls.playPause(true)
-    setTimeout(updateSeek,500)
+    setTimeout(updateSeek,1000)
   }
   else if (!data.playing){
     ytplayer.pauseVideo()
@@ -216,7 +219,7 @@ function handleYtCommand (data){
 
 function handleMp4Command (data){
   if (data.playing){
-    data.seek += now() - data.timestamp + realTimeOffset;
+    data.seek += now() - data.timestamp;
   }
   mp4player.currentTime = data.seek;
   controls.seek(data.seek)
@@ -224,7 +227,7 @@ function handleMp4Command (data){
   if (data.playing){
     mp4player.play();
     controls.playPause(true)
-    setTimeout(updateSeek,500)
+    setTimeout(updateSeek,1000)
   }
   else if (!data.playing){
     mp4player.pause();
@@ -236,7 +239,7 @@ function handleMp4Command (data){
 // send a player action to the server
 function outgoing (playing, seek) {
   dataRef.update(
-    {playing: playing, seek: seek, timestamp: now(), owner: id}
+    {playing: playing, seek: seek, timestamp: now() + realTimeOffset, owner: id}
   );
 }
 
