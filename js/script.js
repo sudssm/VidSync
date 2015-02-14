@@ -359,9 +359,7 @@ function toggleSidebar (){
 
 
 //public functions
-window.makeYtPlayer = makeYtPlayer;
-window.controls = function(){return controls}
-window.player = function (){return mp4player};
+
 // start!
 $(document).ready(function(){
   init();
