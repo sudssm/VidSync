@@ -28,11 +28,9 @@ var realTimeOffset;
 function init(){
   // listeners 
   $("#create").click(function() {
-    console.log("create")
     makeRoom($("#room")[0].value)
   });
   $("#join").click(function() {
-    console.log("join")
     joinRoom($("#room")[0].value)
   });
 
@@ -55,12 +53,10 @@ function init(){
 
 // initiate room creation
 function makeRoom (name) {
-  console.log("create room");
   dataRef = dataRef.root();
   creating = true;
   // get tokbox credentials
   $.getJSON("php/generate.php", function(res){
-    console.log(res);
     dataRef = dataRef.child(name);
     dataRef.on('value', incoming);
     dataRef.update(
@@ -162,8 +158,6 @@ function setupRoom(){
 // handle an incoming firebase message
 function incoming (fb) {
   var data = fb.val();
-  console.log("inc");
-  console.log(data);
 
   if (!creating && data == null){
     alert("This room does not exist! Creating a new room.");
@@ -183,8 +177,6 @@ function incoming (fb) {
 
   last_command = data;
   if (first_run){
-    console.log("tb")
-    console.log(data)
     tokboxSession = data.sessionId;
     tokboxToken = data.token;
     setupRoom();
@@ -200,19 +192,33 @@ function incoming (fb) {
     if (mp4player == null)
       makeMp4Player(data);
     else
-      handleMp4Inc(data);
+      return;//handleMp4Command(data);
   }
 }
 
 function handleYtCommand (data){
-  console.log("handling")
-  console.log(data);
-
   if (data.playing){
-    console.log("off by " + (now() - data.timestamp + realTimeOffset))
     data.seek += now() - data.timestamp + realTimeOffset;
   }
   ytplayer.seekTo(data.seek);   
+  controls.seek(data.seek)
+
+  if (data.playing){
+    ytplayer.playVideo()
+    controls.playPause(true)
+    updateSeek()
+  }
+  else if (!data.playing){
+    ytplayer.pauseVideo()
+    controls.playPause(false)
+  }
+}
+
+function handleMp4Command (data){
+  if (data.playing){
+    data.seek += now() - data.timestamp + realTimeOffset;
+  }
+  mp4player.seekTo(data.seek);   
   controls.seek(data.seek)
 
   if (data.playing){
@@ -229,8 +235,6 @@ function handleYtCommand (data){
 
 // send a player action to the server
 function outgoing (playing, seek) {
-  console.log("out");
-  console.log({playing:playing, seek:seek});
   dataRef.update(
     {playing: playing, seek: seek, timestamp: now(), owner: id}
   );
@@ -240,7 +244,7 @@ function outgoing (playing, seek) {
 // handle an incoming chat firebase message
 function chatIn (fb) {
   var data = fb.val();
-  if (!data || !data.name || !data.message)
+  if (!data || !data.name || !  data.message)
     return;
   var date = new Date(data.timestamp).toLocaleTimeString()
   var me = data.id == id ? " class='self'" : "";
@@ -302,6 +306,20 @@ function makeYtPlayer(vid) {
   });
 }
 
+function makeMp4Player(vid){
+  function onPlayerReady(){
+    console.log("player ready");
+    makeControls(mp4player.duration);
+  }
+  $("#players").html(
+    "<video id='mp4player' width='100%' height='100%'>" +
+    "  <source src='" + vid + "type='video/mp4'>" +
+    "  Sorry, your browser does not support HTML5 videos!" +
+    "</video>")
+  mp4player = $("#mp4player")[0];
+  mp4player.onloadeddata = onPlayerReady
+}
+
 function updateSeek (){
   var player = ytplayer ? ytplayer : mp4player;
   if (!player || player.getPlayerState() == 0)
@@ -343,7 +361,7 @@ function toggleSidebar (){
 //public functions
 window.makeYtPlayer = makeYtPlayer;
 window.controls = function(){return controls}
-window.player = function (){return ytplayer};
+window.player = function (){return mp4player};
 // start!
 $(document).ready(function(){
   init();
