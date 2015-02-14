@@ -240,6 +240,12 @@ button {
   font-size: 11px;
 }
 
+#slide {
+  width: 50px; 
+  position: absolute; 
+  bottom: 280px;
+  cursor: pointer;
+}
 .flip{
   -moz-transform: scaleX(-1); /* For Mozilla Firefox */
   -o-transform: scaleX(-1);   /* For Opera */

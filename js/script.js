@@ -104,11 +104,10 @@ function setupRoom(){
     if (vid.indexOf("youtube.com")>-1){
       var key = vid.substring(vid.indexOf("v=")+2, vid.indexOf("#"));
       var type = "YT";
-      dataRef.update({type: type, video: key});
+      dataRef.update({type: type, video: key, seek: 0});
     }
     else if (vid.indexOf(".mp4") > -1){
-      //TODO
-      dataRef.update({type:"mp4", video: $("#vid")[0].value});
+      dataRef.update({type:"mp4", video: $("#vid")[0].value, seek: 0});
     }
     else
       alert ("Link not recognized");
@@ -207,7 +206,7 @@ function handleYtCommand (data){
   if (data.playing){
     ytplayer.playVideo()
     controls.playPause(true)
-    updateSeek()
+    setTimeout(updateSeek,500)
   }
   else if (!data.playing){
     ytplayer.pauseVideo()
@@ -225,7 +224,7 @@ function handleMp4Command (data){
   if (data.playing){
     mp4player.play();
     controls.playPause(true)
-    updateSeek()
+    setTimeout(updateSeek,500)
   }
   else if (!data.playing){
     mp4player.pause();
@@ -350,7 +349,6 @@ function getPlaying(){
 }
 
 function makeControls(duration){
-  var player = ytplayer ? ytplayer : mp4player;
   $("#controls").css({
     top: $("#players").offset().top,
     left: $("#players").offset().left,
@@ -377,8 +375,6 @@ function toggleSidebar (){
 }
 
 
-//public functions
-window.player = function (){return mp4player}
 // start!
 $(document).ready(function(){
   init();
