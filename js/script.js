@@ -45,6 +45,9 @@ function init(){
     realTimeOffset = parseInt(res.timestamp) - now()
   })
 
+  toggleSidebar();
+  $("#slide").click(toggleSidebar);
+
   if (window.location.hash != "")
     joinRoom(window.location.hash.substring(1));
 }
@@ -88,6 +91,9 @@ function joinRoom (name) {
   chatRef.on('child_added', chatIn)
   first_run = true;
   roomName = name;
+
+  if (!$("#slide").hasClass("flip"))
+    toggleSidebar();
 
   window.location.hash=name;
 }
@@ -321,6 +327,14 @@ function makeControls(duration){
     }
   })
   updateSeek()
+}
+
+function toggleSidebar (){
+  if($("#slide").hasClass("flip"))
+    $("#right").animate({width: 50})
+  else
+    $("#right").animate({width: 200})
+  $("#slide").toggleClass('flip');
 }
 
 

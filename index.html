@@ -13,6 +13,8 @@
   <script src = "js/script.js"></script>
   <script src = "js/controls.js"></script>
   <script src = "js/tokbox.js"></script>
+
+  </script>
 </head>
 <body>
   <div class='horiz' id='head'>
@@ -26,7 +28,8 @@
     
   <div class='container' id='container'>
     <div id='players'>
-    	<p id='intro'> Welcome to VidSync! Do you find it difficult to stay in sync while watching videos online with others? Fear not, for VidSync is here! Once you and your friends all join a room, anytime someone plays, pauses, stops, or seeks a video, everyone else's video syncs up! You can also see your friends and chat with them. VidSync supports Youtube links, MP4 links, and MP4 uploads. Have fun watching videos in sync! </p>
+    	<p id='intro'> Welcome to VidSync! Do you find it difficult to stay in sync while watching videos online with others? Fear not, for VidSync is here! Once you and your friends all join a room, anytime someone plays, pauses, stops, or seeks a video, everyone else's video syncs up! You can also see your friends and chat with them. VidSync supports Youtube links, MP4 links, and MP4 uploads. Have fun watching videos in sync! 
+      <br><br>Note: MP4 functionality has been temporarily taken down!</p>
     </div>
 
     <div id='controls'></div>
@@ -35,15 +38,16 @@
       <div class='cams'> <!--right-->
       	<div id='cam0'></div>
       	<div id='cam1'></div>
-      	<div id='chat' class='chat'>
-      	  <input type="text" id="nickname" placeholder="Enter your name">
-      	  <div id='chatbox'>  
-      	    <ul>
-      	      
-      	    </ul>
-    	  </div>
-    	  <input id="message" type="textfield" placeholder="Enter a Message">
-      	</div>
+      </div>
+      <img id='slide' class='flip' style='width: 50px; position: absolute; bottom: 280px' src='img/controls/slide.png'>  
+    	<div id='chat' class='chat'>
+    	  <input type="text" id="nickname" placeholder="Enter your name">
+    	  <div id='chatbox'>  
+    	    <ul>
+    	      
+    	    </ul>
+  	    </div>
+  	  <input id="message" type="textfield" placeholder="Enter a Message">
       </div>
     </div>
   </div>
