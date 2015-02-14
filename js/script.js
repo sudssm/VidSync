@@ -147,7 +147,8 @@ function setupRoom(){
     coverUp();
   });
 
-  $("#chat").prepend("<h1 id='roomName'>"+roomName+"</h1>");
+  if ($("#chat h1").length == 0)
+    $("#chat").prepend("<h1 id='roomName'>"+roomName+"</h1>");
   $("#chat").show();
   if (tokboxSession == 0)
     alert ("Sorry, our Tokbox trial has expired. Please enjoy VidSync without webcam service for now.");
@@ -192,7 +193,7 @@ function incoming (fb) {
     if (mp4player == null)
       makeMp4Player(data);
     else
-      return;//handleMp4Command(data);
+      handleMp4Command(data);
   }
 }
 
@@ -218,16 +219,16 @@ function handleMp4Command (data){
   if (data.playing){
     data.seek += now() - data.timestamp + realTimeOffset;
   }
-  mp4player.seekTo(data.seek);   
+  mp4player.currentTime = data.seek;
   controls.seek(data.seek)
 
   if (data.playing){
-    ytplayer.playVideo()
+    mp4player.play();
     controls.playPause(true)
     updateSeek()
   }
   else if (!data.playing){
-    ytplayer.pauseVideo()
+    mp4player.pause();
     controls.playPause(false)
   }
 
@@ -306,14 +307,15 @@ function makeYtPlayer(vid) {
   });
 }
 
-function makeMp4Player(vid){
+function makeMp4Player(data){
+
   function onPlayerReady(){
-    console.log("player ready");
     makeControls(mp4player.duration);
+    handleMp4Command(last_command);
   }
   $("#players").html(
     "<video id='mp4player' width='100%' height='100%'>" +
-    "  <source src='" + vid + "type='video/mp4'>" +
+    "  <source src='" + data.video + "' type='video/mp4'>" +
     "  Sorry, your browser does not support HTML5 videos!" +
     "</video>")
   mp4player = $("#mp4player")[0];
@@ -321,13 +323,30 @@ function makeMp4Player(vid){
 }
 
 function updateSeek (){
-  var player = ytplayer ? ytplayer : mp4player;
-  if (!player || player.getPlayerState() == 0)
+  if (!getPlaying())
     return
   
-  controls.seek(player.getCurrentTime())
+  controls.seek(getCurrentTime())
   
   setTimeout(updateSeek, 500)
+}
+
+function getCurrentTime(){
+  if (ytplayer)
+    return ytplayer.getCurrentTime();
+  else if (mp4player)
+    return mp4player.currentTime;
+  else 
+    return null;
+}
+
+function getPlaying(){
+  if (ytplayer)
+    return ytplayer.getPlayerState() == 1;
+  else if (mp4player)
+    return !mp4player.paused;
+  else 
+    return null;
 }
 
 function makeControls(duration){
@@ -340,10 +359,10 @@ function makeControls(duration){
   })
   controls = Controls("controls", duration, {
     onPlayPause: function(playing){
-      outgoing(playing, player.getCurrentTime())
+      outgoing(playing, getCurrentTime())
     },
     onSeek: function(seek){
-      outgoing(player.getPlayerState()==1, seek)
+      outgoing(getPlaying(), seek)
     }
   })
   updateSeek()
@@ -359,7 +378,7 @@ function toggleSidebar (){
 
 
 //public functions
-
+window.player = function (){return mp4player}
 // start!
 $(document).ready(function(){
   init();
