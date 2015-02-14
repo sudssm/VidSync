@@ -1,0 +1,2 @@
+# VidSync
+VidSync is a synchronized video-watching tool that allows users to watch videos together, even while separated. After one user creates a room, other users can join it. Any user can load a YouTube or MP4 link, or upload their own video. Then, when any playing, pausing, or seeking action by any of the users is mirrored to all other users in the room, with virtually no delay. There is a built-in chat and webcam stream alongside the video. VidSync was built during Spring PennApps 2014, where it won the NameCheap "Most Marketable" award.
