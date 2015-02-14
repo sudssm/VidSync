@@ -240,7 +240,7 @@ function outgoing (playing, seek) {
 // handle an incoming chat firebase message
 function chatIn (fb) {
   var data = fb.val();
-  if (!data)
+  if (!data || !data.name || !data.message)
     return;
   var date = new Date(data.timestamp).toLocaleTimeString()
   var me = data.id == id ? " class='self'" : "";
@@ -259,6 +259,8 @@ function chatIn (fb) {
 // send a chat to the server
 function chatOut (msg) {
   var nickname = $("#nickname")[0].value;
+  if (msg == "" || !msg)
+    return;
   chatRef.push({
     id: id,
     name: (nickname ? nickname : id),
