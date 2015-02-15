@@ -200,6 +200,8 @@ function incoming (fb) {
 }
 
 function handleYtCommand (data){
+  if (!ytplayer.seekTo)
+    return;
   if (data.playing){
     data.seek += now() - data.timestamp;
   }
@@ -218,6 +220,8 @@ function handleYtCommand (data){
 }
 
 function handleMp4Command (data){
+  if (!mp4player.play)
+    return
   if (data.playing){
     data.seek += now() - data.timestamp;
   }
