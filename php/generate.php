@@ -1,14 +1,7 @@
 <?php
-    // reads opentok credentials from openTok-credentials file
-    // line 1 - key, line 2 - secret
-
+    require "openTok-settings.php";
     require "vendor/autoload.php";
     use OpenTok\OpenTok;
-
-    $credFile = fopen("openTok-credentials", "r") or die("Unable to open file!");
-    $key = trim((fgets($credFile)));
-    $secret = trim(fgets($credFile));
-    fclose($credFile);
 
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, "http://api.opentok.com/session/create"); 

@@ -1,1 +1,3 @@
-openTok-credentials
+php/vendor
+php/composer.lock
+php/openTok-settings.php
